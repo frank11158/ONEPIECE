@@ -1,0 +1,1021 @@
+* { box-sizing: border-box;}
+html {
+  height: 100%; }
+body{
+	overflow: hidden;
+    background: #000 url("./image/background.PNG") center center fixed no-repeat!important;
+    background-size:cover!important;
+
+}
+img{
+	object-fit: cover;
+}
+
+
+:root{
+	--left0:30%;
+	--left00:48%;
+
+	--left1:26%;   /*Left Picture  start*/
+	--left2:50%;   /*Right Picture start*/
+
+	--left3:20%;   /*Left Picture  Second*/
+	--left4:60%;   /*Right Picture Second*/
+
+	--left5:4%;
+	--left6:98%;
+
+    --initPos : 180px; /*230*/
+    --Pos1 : 150px;  /*50*/
+    --OutPos : -500px;
+    --EndPos : 200px;
+}
+/*.block{
+    float: left;
+    width: 25%;
+    height: 50%;
+    background-color: rgba(127, 255, 212, 0.6);
+	
+}
+
+#b1{
+	 border-radius:60%;
+    position: relative;
+    top: 25%;
+    left: 20%;
+}
+
+#b2{
+    position: relative;
+    top: 25%;
+    left: 32%;
+}*/
+/*#video{
+	display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 23%;
+    height: 40%;
+    opacity: 0;
+    z-index: 15;
+    transform:scale(0.5);
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}*/
+
+#bg{
+	  position: absolute;
+	  left:5px;
+	  top:15px;
+	  border-radius: 50%;
+	  width:250px;
+}
+
+.show{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fade_pic{
+  
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+
+.reveal_pic{
+    border-radius: 5px;
+    position: absolute;
+    width: 100%;
+    height:80%;
+}
+
+.blockTitle{
+	font-family: "Noto Sans TC", sans-serif;
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    top: 85%;
+}
+
+.behind{
+	
+    width: 70%;
+    height:100%;
+    opacity: 0;
+    position: absolute;
+}
+
+.block {
+	
+	float: left;
+    width: 25%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 1);
+   
+    display: none;
+    position: fixed; 
+    padding-top: 0px; 
+    overflow: hidden;
+   
+
+}
+
+.icon {
+    position: absolute;
+    height: 2%;
+    top: 1%;
+    color: #443f3b;
+    text-align: center;
+    font-size: 24px;
+    padding: 5px 5px;
+    border-radius: 30%;
+    z-index: 3;
+}
+
+.icon:hover {
+    opacity: 0.7;
+}
+
+#icon-home {
+    right: 10px;
+	top:10px;
+}
+
+#icon-about {
+    right: 10px;
+	top:60px;
+}
+
+#icon-game {
+	right:10px;
+    top: 110px;
+}
+
+
+@keyframes movingForwardStage0 {
+    from {
+        opacity: 0;
+        bottom: var(--EndPos);  
+        transform: scale(0.5, 0.5);
+    }
+    to {
+        opacity: 0.5;
+        bottom: var(--initPos);     
+        transform: scale(0.7, 0.7);
+    }
+}
+
+@keyframes movingForwardStage1 {
+    from {
+        opacity: 0.5;
+        bottom: var(--initPos);  
+        transform: scale(0.7, 0.7);
+    }
+    to {
+        opacity: 1;
+        bottom: var(--Pos1);     
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes movingForwardStage2 {
+    from {
+        bottom: var(--Pos1);   
+        opacity: 1;
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        
+        bottom: var(--OutPos);       
+        opacity: 1;
+        transform: scale(1.6, 1.6);
+    }
+}
+
+@keyframes movingBackwardStage3 {
+    from {
+
+        bottom: var(--OutPos);
+        opacity: 1;
+        transform: scale(1.6, 1.6);
+    }
+    to {
+        bottom: var(--Pos1);        
+        opacity: 1;
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes movingBackwardStage2 {
+    from {
+        opacity: 1;
+        bottom: var(--Pos1);
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        opacity: 0.5;
+        bottom: var(--initPos);        
+        transform: scale(0.7, 0.7);
+    }
+}
+
+@keyframes movingBackwardStage1 {
+    from {
+        opacity: 0.5;
+        bottom: var(--initPos);        
+        transform: scale(0.7, 0.7);
+    }
+    to {
+        opacity: 0;
+        bottom: var(--EndPos);  
+        transform: scale(0.5, 0.5);
+    }
+}
+
+.visible{
+    background-color:whitesmoke;
+}
+
+#v0 {
+    box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+	width: 40%;
+    height: 60%;
+	position: absolute !important;
+	bottom: 150px;
+ 	left: 26%;
+    opacity: 0.5;
+    z-index: 21;
+	border-radius:10px;
+	scale:0.5;
+
+}
+#v0 > div.hidden.content > video{
+	
+    margin-top: 9%;
+    margin-left: 8%;
+	margin-right: 8%;
+}
+
+#b0 {
+    box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+	width: 40%;
+    height: 60%;
+	position: absolute !important;
+	bottom: 150px;
+ 	left: 30%;
+    opacity: 0;
+    z-index: 20;
+	border-radius:10px;
+	display: none;
+
+}
+#b0 > div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 9%;
+    margin-left: 8%;
+	margin-right: 8%;
+}
+#b1{
+   box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left1);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 19;
+	border-radius:60%;
+	width: 25%;
+    height: 50%;
+	display: none;
+}
+#b1 > div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 25%;
+    margin-left: 18%;
+	margin-right: 13%;
+}
+
+#b2{
+   box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 18;
+	border-radius:60%;
+	width: 20%;
+    height: 40%;
+	display: none;
+
+}
+#b2 > div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 32%;
+    margin-left: 18%;
+	margin-right: 13%;
+}
+#b3 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left1);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 17;
+	width: 23%;
+    height: 40%;
+	border-radius:8px;
+	display: none;
+}
+#b3 > div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 10%;
+    margin-left: 13%;
+	margin-right: 13%;
+}
+#b4 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 16;
+	width: 20%;
+    height: 40%;
+	border-radius:8px;
+	display: none;
+}
+#b4 > div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 15%;
+	margin-right: 13%;
+}
+#b5 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 25%;
+    height: 42%;
+    opacity: 0;
+    z-index: 15;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b5>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:60%;
+    position: relative;
+    left:25%;
+    top: 24%;
+}
+#b6 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 20%;
+    height: 40%;
+	border-radius:8px;
+	display: none;
+}
+#b6> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 13%;
+    margin-left: 15%;
+	margin-right: 13%;
+}
+#b7 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:10px;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 29%;
+    height: 34%;
+    opacity: 0;
+    z-index: 13;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b7>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	position: relative;
+    left:25%;
+    top: 25%;
+}
+#b8 {
+    /* bottom: 500px; */
+    display: none;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 25%;
+    height: 35%;
+    opacity: 0;
+    z-index: 12;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+	border-radius:5px;
+}
+#b8>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;	
+    position: relative;
+    left:25%;
+    top: 25%;
+}
+#b9 {
+    /* bottom: 500px; */
+    display: none;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 23%;
+    height: 35%;
+    opacity: 0;
+    z-index: 12;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+	border-radius:5px;
+}
+#b9>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;	
+    position: relative;
+    left:25%;
+    top: 25%;
+}
+
+#b10 {
+    /* bottom: 500px; */
+    display: none;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 23%;
+    height: 35%;
+    opacity: 0;
+    z-index: 12;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+	border-radius:5px;
+}
+#b10>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;	
+    position: relative;
+    left:25%;
+    top: 25%;
+}
+#b11 {
+    /* bottom: 500px; */
+    display: none;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 23%;
+    height: 50%;
+    opacity: 0;
+    z-index: 12;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+	border-radius:5px;
+}
+#b11>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;	
+    position: relative;
+    text-align: center;
+    left:25%;
+    top: 20%;
+}
+
+#b12 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 25%;
+    height: 60%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b12>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:60%;
+    position: relative;
+    left: 25%;
+    top: 25%;
+}
+#b13 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 25%;
+    height: 60%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b13>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:60%;
+    position: relative;
+    left: 25%;
+    top: 20%;
+}
+
+#b14 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:20px;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 28%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b14>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:20px;
+    position: relative;
+    left: 25%;
+    top: 18%;
+}
+
+#b15 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:20px;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 28%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b15>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:20px;
+    position: relative;
+    left: 25%;
+    top: 15%;
+}
+
+#b16 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 28%;
+    height: 55%;
+	display: none;
+	border-radius:8px;
+}
+#b16> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 13%;
+    margin-left: 15%;
+	margin-right: 13%;
+}
+#b17 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:5%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 28%;
+    height: 40%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b17>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:65%;
+    position: relative;
+    left: 25%;
+    top: 20%;
+}
+
+#img3 {
+	left: var(--left1);
+	bottom: var(--EndPos);    
+    transform:scale(0.5);
+    opacity: 0;
+    z-index: 3;
+	display: none;
+}
+
+#img4 {
+	left: var(--left2);
+	bottom: var(--EndPos);
+    display: none;
+    opacity: 0;
+    transform:scale(0.5);
+    z-index: 2;
+}
+
+#img5 {
+	left: var(--left1);
+	bottom: var(--EndPos);
+    display: none;
+    transform:scale(0.5);
+    opacity: 0;
+    z-index: 1;
+}
+
+
+/*-----------------------------------*/
+@keyframes movingForwardStage0_r {
+    from {
+        opacity: 0;
+        bottom: var(--EndPos); 
+        left: var(--left00); 
+        transform: scale(0.5, 0.5);
+    }
+    to {
+        opacity: 0.5;
+        left: var(--left2);
+        bottom: var(--initPos);     
+        transform: scale(0.7, 0.7);
+    }
+}
+
+@keyframes movingForwardStage1_r {
+    from {
+        opacity: 0.5;
+        left: var(--left2);
+        bottom: var(--initPos);  
+        transform: scale(0.7, 0.7);
+    }
+    to {
+        opacity: 1;
+        bottom: var(--Pos1);
+        left: var(--left4);     
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes movingForwardStage2_r {
+    from {
+        bottom: var(--Pos1);   
+        opacity: 1;
+        left: var(--left4);
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        
+        bottom: var(--OutPos);       
+        opacity: 1;
+        left: var(--left6);
+        transform: scale(1.6, 1.6);
+    }
+}
+
+@keyframes movingBackwardStage3_r {
+    from {
+
+        bottom: var(--OutPos);
+        opacity: 1;
+        left: var(--left6);
+        transform: scale(1.6, 1.6);
+    }
+    to {
+        bottom: var(--Pos1);        
+        opacity: 1;
+        left: var(--left4);
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes movingBackwardStage2_r {
+    from {
+        opacity: 1;
+        bottom: var(--Pos1);
+        left: var(--left4);
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        opacity: 0.5;
+        bottom: var(--initPos);
+        left: var(--left2);        
+        transform: scale(0.7, 0.7);
+    }
+}
+
+@keyframes movingBackwardStage1_r {
+    from {
+        opacity: 0.5;
+        bottom: var(--initPos);
+        left: var(--left2) ;       
+        transform: scale(0.7, 0.7);
+    }
+    to {
+        opacity: 0;
+        bottom: var(--EndPos);  
+        left: var(--left00);
+        transform: scale(0.5, 0.5);
+    }
+}
+
+
+/*-----------------------------------*/
+
+/*-----------------------------------*/
+@keyframes movingForwardStage0_l {
+    from {
+        opacity: 0;
+        bottom: var(--EndPos); 
+        left: var(--left0); 
+        transform: scale(0.5, 0.5);
+    }
+    to {
+        opacity: 0.5;
+        left: var(--left1);
+        bottom: var(--initPos);     
+        transform: scale(0.7, 0.7);
+    }
+}
+
+@keyframes movingForwardStage1_l {
+    from {
+        opacity: 0.5;
+        left: var(--left1);
+        bottom: var(--initPos);  
+        transform: scale(0.7, 0.7);
+    }
+    to {
+        opacity: 1;
+        bottom: var(--Pos1);
+        left: var(--left3);     
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes movingForwardStage2_l {
+    from {
+        bottom: var(--Pos1);   
+        opacity: 1;
+        left: var(--left3);
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        
+        bottom: var(--OutPos);       
+        opacity: 1;
+        left: var(--left5);
+        transform: scale(1.6, 1.6);
+    }
+}
+
+@keyframes movingBackwardStage3_l {
+    from {
+
+        bottom: var(--OutPos);
+        opacity: 1;
+        left: var(--left5);
+        transform: scale(1.6, 1.6);
+    }
+    to {
+        bottom: var(--Pos1);        
+        opacity: 1;
+        left: var(--left3);
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes movingBackwardStage2_l {
+    from {
+        opacity: 1;
+        bottom: var(--Pos1);
+        left: var(--left3);
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        opacity: 0.5;
+        bottom: var(--initPos);
+        left: var(--left1);        
+        transform: scale(0.7, 0.7);
+    }
+}
+
+@keyframes movingBackwardStage1_l {
+    from {
+        opacity: 0.5;
+        bottom: var(--initPos);
+        left: var(--left1) ;       
+        transform: scale(0.7, 0.7);
+    }
+    to {
+        opacity: 0;
+        bottom: var(--EndPos);  
+        left: var(--left0);
+        transform: scale(0.5, 0.5);
+    }
+}
+/*-----------------------------------*/
+
+#container {
+    position: absolute;
+    width:85%;
+    bottom: 5%;
+    left: 15%;
+}
+   
+.range {
+    position: relative;
+    width: 85%;
+    height: 4px;
+}
+   
+.range input {
+    width: 100%;
+    position: absolute;
+    top: 3px;
+    height: 0px;
+    -webkit-appearance: none;
+}
+.range input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    margin: -8px 0 0;
+    border-radius: 50%;
+    background: #37adbf;
+    cursor: pointer;
+    border: 0 !important;
+}
+.range input::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    margin: -8px 0 0;
+    border-radius: 50%;
+    background: #37adbf;
+    cursor: pointer;
+    border: 0 !important;
+}
+.range input::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    margin: -8px 0 0;
+    border-radius: 50%;
+    background: #37adbf;
+    cursor: pointer;
+    border: 0 !important;
+}
+.range input::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: #3c3c3c;
+}
+.range input::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: #3c3c3c;
+}
+.range input::-ms-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: #3c3c3c;
+}
+.range input:focus {
+    background: none;
+    outline: none;
+}
+.range input::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.character {
+    position: absolute;
+    display: none;
+    animation: fadeIn 0.2s;
+}
+
+#c-1 {
+    width: 6.5%;
+    left: 3%;
+    bottom: 0%;
+}
+
+#c-2 {
+    width: 8%;
+    left: 10%;
+    bottom: 9%;    
+}
+
+#c-3 {
+    width: 13%;
+    right: -4%;
+    bottom: 0%;    
+}
+
+#c-4 {
+    width: 6%;
+    right: 9%;
+    bottom: 9%;
+    z-index: -1;    
+}
+
+#c-5 {
+    width: 5%;
+    left: 15.5%;
+    bottom: 17%;
+}
+
+#c-6 {
+    width: 5%;
+    left: 20%;
+    bottom: 22%;    
+}
+
+#c-7 {
+    width: 5%;
+    right: 15%;
+    bottom: 16%;
+    z-index: -2;
+}
+
+#c-8 {
+    width: 10%;
+    right: 15%;
+    bottom: 23%;
+    z-index: -3;    
+}
+
+#c-9 {
+    width: 8%;
+    left: 22%;
+    bottom: 27%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

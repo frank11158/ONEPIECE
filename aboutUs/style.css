@@ -1,0 +1,55 @@
+* { box-sizing: border-box;}
+
+html, body {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#aboutus{
+    height: 100%;
+    width: 100%;
+	 position: absolute;
+	 z-index=2;
+}
+
+#aboutusBackground{
+    background: url("./res/aboutus/aboutus_border.png") center center;
+    background-size: cover;
+    height: 105%;
+    width: 100%;
+    min-width: 1000px;
+	position: absolute;
+	z-index:3;
+}
+
+#aboutusWanted{
+    background: url("./res/aboutus/wanted_all.png") center center;
+    background-size: cover;
+    height: 100%;
+    width: 120%;
+    min-width: 1000px;
+    position: absolute;
+    left: -10%;
+    top: -2%;
+    opacity: 0;
+	z-index=4;
+	
+}
+
+
+.icon:hover {
+    opacity: 0.7;
+}
+
+#icon-home {
+	position:absolute;
+    left: 15%;
+	top:50px;
+	z-index:5
+ }
+.fa fa-fw fa-home{
+        width: 200%;
+}	    height: 200%;
+ 

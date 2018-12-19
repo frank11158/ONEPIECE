@@ -28,19 +28,19 @@ function removeHoverEffect(frame) {
 function fade(){
     $(this.getElementsByClassName("fade_pic")).animate({
         'opacity': '0.11',
-    }, 300)
+    }, 250)
     $(this.getElementsByClassName("behind")).animate({
         'opacity': '1',
-    }, 300)
+    }, 250)
 }
 
 function recover(){
     $(this.getElementsByClassName("fade_pic")).animate({
         'opacity': '1',
-    }, 300)
+    }, 250)
     $(this.getElementsByClassName("behind")).animate({
         'opacity': '0',
-    }, 300)
+    }, 250)
 }
 var characters = document.getElementsByClassName("character");
 
@@ -66,7 +66,7 @@ pic_left.push(98 + "%"); //Left6
 pic_left.push(50 + "%"); //Left00
 //var numMusic = 1;
 var allowScroll;
-var numFrames = 20;
+var numFrames = 39;
 var initPos = 180;
 var EndPos = 200;
 var maxScale = 1.6;
@@ -118,11 +118,13 @@ $(window).mousewheel(function(e) {
             console.log(frame[i])
     	}
 		if(allowBackward && (e.deltaY > 0)){
-			slider.value--;
-			ori_num--;
+            slider.value--;
+            ori_num--;
+            turnPage(ori_num);
 		}else if(allowForward && (e.deltaY < 0)){
-			slider.value++;
-			ori_num++;
+            slider.value++;
+            ori_num++;
+            turnPage(ori_num);
 		}else{}
     }
     
@@ -148,7 +150,7 @@ function moveForward(frame, stage) {
         else{}
 
         frame.target.style.animation = m + " 1s";
-        frame.target.style.setProperty("animation-delay", 0.3 + "s");
+        frame.target.style.setProperty("animation-delay", 0.2 + "s");
         $(frame.target).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function() {
             var pos, scale, opt;
             switch(stage) {
@@ -177,14 +179,14 @@ function moveForward(frame, stage) {
                     characters[4].style.display = "block";
                 }
                  else if(frame.index == 18) {
-				 characters[5].style.display = "block";}
-                 //} else if(frame.index == 17) {
-				// characters[6].style.display = "block";}
-                // } else if(frame.index == 7) {
-                //     characters[7].style.display = "block";
-                // } else if(frame.index == 8) {
-                //     characters[8].style.display = "block";
-                // }
+				 characters[5].style.display = "block";
+                 } else if(frame.index == 20) {
+				 characters[6].style.display = "block";
+                 } else if(frame.index == 25) {
+                     characters[7].style.display = "block";
+                 } else if(frame.index == 28) {
+                     characters[8].style.display = "block";
+                 }
                 break;
             case 2:
                 removeHoverEffect(frame);
@@ -290,7 +292,7 @@ function moveBackward(frame, stage) {
         var m_left = (stage-1)*2 - 1 ;
         var tar_left = $(frame.target).position().left;
         var tar_width = $(frame.target).width();
-		var left_right = tar_left + (tar_width / 3);
+		console.log(tar_width);
 		
         if(tar_left > center){
             m = m + "_r";
@@ -305,7 +307,7 @@ function moveBackward(frame, stage) {
         else if(m==-1){m=0;}
 
         frame.target.style.animation = m + " 1s";
-        frame.target.style.setProperty("animation-delay", 0.3 + "s");
+        frame.target.style.setProperty("animation-delay", 0.2 + "s");
         $(frame.target).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function() {
             var pos, scale, opt;
             switch(stage) {
@@ -454,20 +456,22 @@ $(window).keydown(function(event) {
                 frame[i].stage -= 1;
             }
             else allowScroll = 1;
-            console.log(frame[i]);
+            //console.log(frame[i]);
         }
-		if(allowBackward && (e.deltaY > 0)){
+		if(allowBackward && (code == 38)){
 			slider.value--;
-			ori_num--;
-		}else if(allowForward && (e.deltaY < 0)){
+            ori_num--;
+            turnPage(ori_num);
+		}else if(allowForward && (code == 40)){
 			slider.value++;
-			ori_num++;
+            ori_num++;
+            turnPage(ori_num);
 		}else{}
     }
 })
 
 
-function moveLine(x) {
+function moveLine() {
 	var number = slider.value; // Store the number of page
 	console.log(ori_num);
 	console.log(number);
@@ -499,3 +503,71 @@ function moveLine(x) {
 	    console.log(number);
 	}
 }
+
+
+
+
+/*-------TimeLine-------*/
+var sheet = document.createElement('style'),  
+  $rangeInput = $('.range input'),
+  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
+
+document.body.appendChild(sheet);
+
+var number = slider.value; // Store the number of page(1 ~ 28)
+
+function turnPage(index) {
+    
+    $rangeInput.val(index).trigger('input');
+    $('.range-labels li').removeClass('active selected');
+    
+    slider.value = index;
+    val = (index - 1) * 5.23;
+    style = '';
+    var curLabel = $('.range-labels').find('li:nth-child(' + index + ')');
+     
+    curLabel.addClass('active selected');
+    curLabel.prevAll().addClass('selected');
+     
+    // Change background gradient
+    for (var i = 0; i < prefs.length; i++) {
+      style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, transparent ' + val + '%, transparent 100%)}';
+      style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
+    }
+    sheet.textContent = style;
+}
+
+var getTrackStyle = function (el) {  
+  var curVal = el.value,
+      val = (curVal - 1) * 5.23,
+      style = '';
+    number = el.value;
+  // Set active label
+  $('.range-labels li').removeClass('active selected');
+  
+  var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');
+  
+  curLabel.addClass('active selected');
+  curLabel.prevAll().addClass('selected');
+  
+  // Change background gradient
+  for (var i = 0; i < prefs.length; i++) {
+    style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, transparent ' + val + '%, transparent 100%)}';
+    style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
+  }
+
+  return style;
+}
+
+$rangeInput.on('input', function () {
+  sheet.textContent = getTrackStyle(this);
+  moveLine();
+});
+
+// Change input value on label click
+$('.range-labels li').on('click', function () {
+  var index = $(this).index();
+
+  $rangeInput.val(index + 1).trigger('input');
+  moveLine();
+});

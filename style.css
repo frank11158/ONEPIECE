@@ -3,7 +3,7 @@ html {
   height: 100%; }
 body{
 	overflow: hidden;
-    background: #000 url("./image/background.PNG") center center fixed no-repeat!important;
+    background: #000 url("./image/background.png") center center fixed no-repeat!important;
     background-size:cover!important;
 
 }
@@ -90,6 +90,7 @@ img{
     position: absolute;
     width: 100%;
     height:80%;
+	background-size:cover;
 }
 
 .blockTitle{
@@ -243,11 +244,11 @@ img{
 
 #v0 {
     box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
-	width: 40%;
+	width: 35%;
     height: 60%;
 	position: absolute !important;
 	bottom: 150px;
- 	left: 26%;
+ 	left: var(--left2);
     opacity: 0.5;
     z-index: 21;
 	border-radius:10px;
@@ -651,7 +652,438 @@ img{
     left: 25%;
     top: 20%;
 }
-
+#b18 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 34%;
+    height: 48%;
+	display: none;
+	border-radius:8px;
+}
+#b18> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 13%;
+    margin-left: 15%;
+	margin-right: 13%;
+}
+#b19 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:65%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 26%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b19>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:65%;
+    position: relative;
+    left: 25%;
+    top: 20%;
+}
+#b20 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 29%;
+    height: 55%;
+	display: none;
+	border-radius:8px;
+}
+#b20> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 13%;
+    margin-left: 15%;
+	margin-right: 13%;
+}
+#b21 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:65%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 26%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b21>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:65%;
+    position: relative;
+    left: 25%;
+    top: 33%;
+}
+#b22 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 33%;
+    height: 55%;
+	display: none;
+	border-radius:8px;
+}
+#b22> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 10%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+#b23 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:65%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b23>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:65%;
+    position: relative;
+    left: 25%;
+    top: 33%;
+}
+#b24 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:65%;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b24>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:65%;
+    position: relative;
+    left: 25%;
+    top: 18%;
+}
+#b25 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left1);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 28%;
+    height: 65%;
+	display: none;
+	border-radius:8px;
+}
+#b25> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+#b26 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:65%;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 50%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b26>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:65%;
+    position: relative;
+    left: 25%;
+    top: 23%;
+}
+#b27 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:10px;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 50%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b27>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:10px;
+    position: relative;
+    left: 25%;
+    top: 23%;
+}
+#b28 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:10px;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 50%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b28>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:10px;
+    position: relative;
+    left: 25%;
+    top: 23%;
+}
+#b29 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 45%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b29>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:60%;
+    position: relative;
+    left: 28%;
+    top: 35%;
+}
+#b30 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 28%;
+    height: 65%;
+	display: none;
+	border-radius:8px;
+}
+#b30> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+#b31 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left1);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 29%;
+    height: 60%;
+	display: none;
+	border-radius:8px;
+}
+#b31> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+#b32 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:20px;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 37%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b32>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:20px;
+    position: relative;
+    left: 25%;
+    top: 23%;
+}
+#b33 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:20px;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 24%;
+    height: 60%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b33>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:20px;
+    position: relative;
+    left: 25%;
+    top: 35%;
+}
+#b34 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left2);
+    bottom: var(--EndPos);
+    width: 22%;
+    height: 40%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b34>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:60%;
+    position: relative;
+    left: 25%;
+    top: 35%;
+}
+#b35 {
+    /* bottom: 500px; */
+    display: none;
+	border-radius:60%;
+    position: absolute;
+    left: var(--left1);
+    bottom: var(--EndPos);
+    width: 22%;
+    height: 50%;
+    opacity: 0;
+    z-index: 4;
+    transform:scale(0.5);
+	display: none;
+    box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+#b35>div.behind > p{
+	font-family: "Noto Sans TC", sans-serif;
+	border-radius:60%;
+    position: relative;
+    left: 25%;
+    top: 25%;
+}
+#b36 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 29%;
+    height: 60%;
+	display: none;
+	border-radius:8px;
+}
+#b36> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+#b37 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left1);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 29%;
+    height: 60%;
+	display: none;
+	border-radius:8px;
+}
+#b37> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
 #img3 {
 	left: var(--left1);
 	bottom: var(--EndPos);    
@@ -875,6 +1307,7 @@ img{
     width:85%;
     bottom: 5%;
     left: 15%;
+    z-index: 100;
 }
    
 .range {
@@ -892,11 +1325,14 @@ img{
 }
 .range input::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    margin: -8px 0 0;
-    border-radius: 50%;
-    background: #37adbf;
+    width: 35px;
+    height: 40px;
+    margin: -20px -3px 0;
+/*    border-radius: 50%;
+    background: #37adbf;*/
+    background-image: url("merry.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
     cursor: pointer;
     border: 0 !important;
 }
@@ -947,7 +1383,41 @@ img{
     border-color: transparent;
     color: transparent;
 }
-
+.range-labels {
+    margin: 18px -20px 0;
+    padding: 0;
+    list-style: none;
+}
+.range-labels li {
+    position: relative;
+    float: left;
+    width: 4.25%;
+    text-align: center;
+    color: #3c3c3c;
+    font-size: 14px;
+    cursor: pointer;
+}
+.range-labels li::before {        /* 創造圓點 */
+    position: absolute;
+    top: -24px;     /* 調整圓點的高低 */
+    right: 0px;
+    left: -7px;
+    content: "";
+    margin: 0 auto;
+    width: 11px;
+    height: 11px;
+    background: #3c3c3c;
+    border-radius: 50%;
+}
+.range-labels .active {
+    color: #37adbf;
+}
+.range-labels .selected::before {
+    background: #37adbf;
+}
+.range-labels .active.selected::before {
+    display: none;
+}
 .character {
     position: absolute;
     display: none;

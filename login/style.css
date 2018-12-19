@@ -1,0 +1,117 @@
+body {
+    background: #000 url("./images/sign_in_bg(2).jpg") center center fixed no-repeat;
+    background-size:cover;
+}
+
+#header {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    animation-name: dropIn;
+    animation-duration: 2s;
+}
+.register_sign_form {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    top: 15%;
+    left: 35%;
+    text-align: center;
+}
+.register_sign_form p {
+  font-family: Microsoft JhengHei; 
+  font-size: 24px;
+}
+#name, #pwd, #ensure {
+    display: block;
+    height: 30px;
+    margin: -10px auto;
+    border-radius: 7px;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+#reg, #login {
+    display: inline-block;
+    color: white;
+    background-color: #97cbff;
+    width: 120px;
+    height: 30px;
+    font-family: Microsoft JhengHei;
+    font-size: 18px;
+    margin: 30px 5px;
+    outline: none;
+}
+
+#change_pw{
+    display: block;
+    color: white;
+    background-color: #97cbff;
+    width: 250px;
+    height: 30px;
+    font-family: Microsoft JhengHei;
+    font-size: 18px;
+    margin: auto;
+    outline: none;
+}
+
+#reg:active, #login:active, #change_pw:active, #reg:hover, #login:hover, #change_pw:hover {
+    background-color: #0080ff;
+    color: white;
+}
+/* Drop */
+@-webkit-keyframes dropIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+}
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .register_sign_form {
+        position: absolute;
+        width: 50%;
+        height: 60%;
+        top: 20%;
+        left: 25%;
+        text-align: center;
+    }
+    #name, #pwd, #ensure {
+        display: block;
+        height: 30px;
+        margin: 0px auto;
+        border-radius: 7px;
+        text-align: center;
+        outline: none;
+        border: none;
+    }
+    #reg, #login, #change_pw {
+        display: block;
+        color: white;
+        background-color: #97cbff;
+        width: 180px;
+        height: 30px;
+        font-family: Microsoft JhengHei;
+        font-size: 18px;
+        margin: 15px auto;
+        outline: none;
+    }
+}

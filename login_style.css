@@ -1,5 +1,5 @@
 body {
-    background: #000 url("./images/sign_in_bg(2).jpg") center center fixed no-repeat;
+    background: #000 url("./image/signin_bg.jpg") center center fixed no-repeat;
     background-size:cover;
 }
 
@@ -10,19 +10,22 @@ body {
     animation-name: dropIn;
     animation-duration: 2s;
 }
+
 .register_sign_form {
     position: absolute;
     width: 30%;
     height: 50%;
-    top: 15%;
+    top: 20%;
     left: 35%;
     text-align: center;
 }
 .register_sign_form p {
   font-family: Microsoft JhengHei; 
   font-size: 24px;
+  margin: 5%;
 }
-#name, #pwd, #ensure {
+#name, #pwd, #ensure, #old_pwd, #new_pwd {
+    background-color: rgba(189, 195, 199, 1);
     display: block;
     height: 30px;
     margin: -10px auto;
@@ -30,16 +33,19 @@ body {
     text-align: center;
     outline: none;
     border: none;
+    margin-bottom: 2%;
 }
-#reg, #login {
+#reg_btn, #login_btn, #change_pw {
     display: inline-block;
     color: white;
+    border-radius: 4px;
     background-color: #97cbff;
+    transition: all .3s ease;
     width: 120px;
     height: 30px;
     font-family: Microsoft JhengHei;
     font-size: 18px;
-    margin: 30px 5px;
+    margin: 10%;
     outline: none;
 }
 
@@ -47,15 +53,17 @@ body {
     display: block;
     color: white;
     background-color: #97cbff;
-    width: 250px;
+    transition: all .3s ease;
+    border-radius: 4px;
+    width: 60%;
     height: 30px;
     font-family: Microsoft JhengHei;
     font-size: 18px;
-    margin: auto;
+    margin: 10% 20%;
     outline: none;
 }
 
-#reg:active, #login:active, #change_pw:active, #reg:hover, #login:hover, #change_pw:hover {
+#reg_btn:active, #login_btn:active, #change_pw:active, #reg_btn:hover, #login_btn:hover, #change_pw:hover {
     background-color: #0080ff;
     color: white;
 }
@@ -94,7 +102,7 @@ body {
         left: 25%;
         text-align: center;
     }
-    #name, #pwd, #ensure {
+    #name, #pwd, #ensure, #old_pwd, #new_pwd {
         display: block;
         height: 30px;
         margin: 0px auto;
@@ -103,7 +111,7 @@ body {
         outline: none;
         border: none;
     }
-    #reg, #login, #change_pw {
+    #reg_btn, #login_btn, #change_pw {
         display: block;
         color: white;
         background-color: #97cbff;
@@ -114,4 +122,19 @@ body {
         margin: 15px auto;
         outline: none;
     }
+}
+
+.my_icon {
+    position: absolute;
+    top: 20%;
+    right: 35%;
+    font-size: 2em; 
+    color:white;
+    z-index: 99;
+}
+
+#result{
+    text-align: center;
+    font-size: 5px;
+    margin: 0px;
 }

@@ -571,7 +571,7 @@ function remove_block() {
 }
 
 function panda_man(){
-    var rand = Math.floor((Math.random() * 3));
+    var rand = Math.floor((Math.random() * 50));
     if(rand == 1){
         while(1){
             var r = Math.floor((Math.random() * 4));

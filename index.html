@@ -12,14 +12,10 @@
 		<link rel="manifest" href="manifest.json"></link>
     </head>
     <body>
-        <a class="my_icon" onmousedown="info(this)">
-            <span style="font-size: 1em; color:white;">
-                <i class="fas fa-info-circle"></i>
-            </span>
-        </a>
+
         <embed src="./music/login_music.mp3" autostart="1" hidden="true" loop="1" volume="1"></embed>
         <div id="header">
-            <img src="./image/icon.png" style="width: 100px; height: 100px; margin-top: 15%;"></img>
+            <img src="./image/icon.png" id="head_icon"></img>
         </div>
         <div class = "register_sign_form">
             <div class="ui top attached tabular menu">
@@ -31,7 +27,12 @@
                 </a>
                 <a class="item" onmousedown="loginPage_state(this)" id="changeP_tag">
                     Change Password
-                </a>
+                  </a>
+                 <a class="my_icon" onmousedown="info(this)">
+                    <span style="font-size: 1em; color:white;">
+                       <i class="fas fa-info-circle"></i>
+                     </span>
+                  </a>
             </div>
             <div class="ui bottom attached segment">
                 <p>Name</p>

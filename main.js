@@ -410,29 +410,29 @@ function moveBackward(frame, stage) {
     }
 }
 */
-function onload() {
-    // new Frame objects
-    // for(i = 0; i < numFrames; i++) {
-    //     frame.push(new Frame(i));
-    //     frame[i].target.style.bottom = initPos;
-    // }
-
-	for(i = 0; i < numFrames; i++) {
-	    frame.push(new Frame(i));
-	    frame[i].target.style.bottom = EndPos;
-	}
-	frame[0].target.style.bottom = initPos;
-    // initial setting
-    for(i = 0; i < numFrames; i++) {
-        if(frame[i].stage <= 0){
-            frame[i].target.style.display = "none";
+var username = undefined;
+function onload() {        
+    if (getCookie("Username") == "")
+        window.top.location.replace("https://onepiece.hmkrl.com:8888");
+    else {
+        username = getCookie("Username");
+        for(i = 0; i < numFrames; i++) {
+            frame.push(new Frame(i));
+            frame[i].target.style.bottom = EndPos;
         }
-        else if(frame[i].stage == 2) {
-            addHoverEffect();
+        frame[0].target.style.bottom = initPos;
+        // initial setting
+        for(i = 0; i < numFrames; i++) {
+            if(frame[i].stage <= 0){
+                frame[i].target.style.display = "none";
+            }
+            else if(frame[i].stage == 2) {
+                addHoverEffect();
+            }
+            console.log(frame[i]);
         }
-        console.log(frame[i]);
+        allowScroll = 1;
     }
-    allowScroll = 1;
 }
 
 
@@ -627,4 +627,20 @@ function openNav() {
 function closeNav() {
     document.getElementsByClassName("topnav")[0].style.width = "0";
     document.getElementsByClassName("open")[0].style.display = "block";
+}
+
+/*---------Cookie------------*/
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

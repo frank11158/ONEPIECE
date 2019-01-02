@@ -138,25 +138,13 @@ img{
     z-index: 3;
 }
 
-.icon:hover {
-    opacity: 0.7;
-}
-
-#icon-home {
-    right: 10px;
-	top:10px;
-}
-
-#icon-about {
-    right: 10px;
-	top:60px;
-}
-
-#icon-game {
-	right:10px;
-    top: 110px;
-}
-
+.floating.message{
+    position: absolute;
+    left:50%;
+    width:12%;
+    top:1%;
+    text-align: center;
+} 
 
 @keyframes movingForwardStage0 {
     from {
@@ -1595,7 +1583,7 @@ img{
     overflow: hidden;
     background-color: #333;
     width: 0;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .topnav a {
@@ -1605,7 +1593,12 @@ img{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 13px;
+}
+
+.topnav p{
+    margin-left: 3px;
+    color: #f2f2f2;
+    font-size: 15px;
 }
 
 .topnav closebtn {
@@ -1613,15 +1606,24 @@ img{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 25px 16px;
     text-decoration: none;
     font-size: 13px;
+}
+
+#usernow{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 25px 16px;
+    text-decoration: none;
+    margin: 0;
 }
 
 .home {
   background-color: rgb(230, 169, 100);
   color: white;
-  font-size: 16px;    
+  height: 100%;
 }
 
 .topnav .icon {
@@ -1638,7 +1640,7 @@ img{
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  /*padding: 14px 16px;*/
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -1651,6 +1653,13 @@ img{
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+}
+
+#set{
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 15px;
+    text-align: center;
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {

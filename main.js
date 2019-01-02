@@ -644,3 +644,13 @@ function getCookie(cname) {
     }
     return "";
 }
+/*------------------------------*/
+function pop(){
+    var popmes = document.querySelector(".floating.message.hidden");
+    if(popmes != null)
+        popmes.classList.remove("hidden");
+    else{
+        popmes = document.querySelector(".floating.message");
+        popmes.classList.add("hidden");
+    }
+} 

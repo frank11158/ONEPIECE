@@ -412,9 +412,9 @@ function moveBackward(frame, stage) {
 */
 var username = undefined;
 function onload() {        
-    if (getCookie("Username") == "")
-        window.top.location.replace("https://onepiece.hmkrl.com:8888");
-    else {
+    // if (getCookie("Username") == "")
+    //     window.top.location.replace("https://onepiece.hmkrl.com:8888");
+    // else {
         username = getCookie("Username");
         for(i = 0; i < numFrames; i++) {
             frame.push(new Frame(i));
@@ -432,7 +432,7 @@ function onload() {
             console.log(frame[i]);
         }
         allowScroll = 1;
-    }
+    // }
 }
 
 
@@ -620,12 +620,12 @@ $(document).mouseup(function(e)
 });
 
 function openNav() {
-    document.getElementsByClassName("topnav")[0].style.width = "100%";
+    document.getElementsByClassName("topnav")[0].style.height = "49.33px";
     document.getElementsByClassName("open")[0].style.display = "none";
 }
 
 function closeNav() {
-    document.getElementsByClassName("topnav")[0].style.width = "0";
+    document.getElementsByClassName("topnav")[0].style.height = "0";
     document.getElementsByClassName("open")[0].style.display = "block";
 }
 

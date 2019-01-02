@@ -471,8 +471,8 @@ $(window).keydown(function(event) {
 })
 
 
-function moveLine() {
-	var number = slider.value; // Store the number of page
+function moveLine(number=slider.value, isSearch=0) {
+	// var number = slider.value; // Store the number of page
 	console.log(ori_num);
 	console.log(number);
 	
@@ -501,7 +501,8 @@ function moveLine() {
 	   	else {ori_num--;}
 	    console.log(ori_num);
 	    console.log(number);
-	}
+    }
+    if(isSearch) turnPage(ori_num);
 }
 
 
@@ -536,7 +537,7 @@ function turnPage(index) {
       style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
     }
     if(slider.value < 16) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
-    else if(16 < slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
+    else if(16 <= slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
     else style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "sunny.gif" + "\");";
     sheet.textContent = style;
 }
@@ -561,7 +562,7 @@ var getTrackStyle = function (el) {
   }
 
   if(slider.value < 16) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
-  else if(16 < slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
+  else if(16 <= slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
   else style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "sunny.gif" + "\");";
   return style;
 }
@@ -578,3 +579,52 @@ $('.range-labels li').on('click', function () {
   $rangeInput.val(index + 1).trigger('input');
   moveLine();
 });
+
+
+/*----------Search------------*/
+var target;
+var menu = document.getElementById("myMenu");
+var content = document.getElementsByTagName("p");
+
+function search() {
+    document.getElementsByClassName("search-content")[0].style.display = "block";
+    menu.innerHTML = "";
+    target = document.getElementById("mySearch").value;
+    for(i = 0; i < content.length; i++) {
+        answer = fuzzyQuery(content[i].innerHTML, target);
+        if(answer.length != 0) {
+            var position = i+3
+            var title = content[i].getElementsByTagName("span")[0];
+            menu.innerHTML += "<li onclick=\"moveLine(" + position + "," + 1 + ")\">" + title.innerText + "</li>";
+        }
+    }
+}
+
+function fuzzyQuery(list, keyword) {
+    var arr = [];
+    if(list.indexOf(keyword) >= 0) {
+        arr.push(list);
+    }
+    return arr;
+}
+
+$(document).mouseup(function(e) 
+{
+    var container = $(".search-content");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.hide();
+    }
+});
+
+function openNav() {
+    document.getElementsByClassName("topnav")[0].style.width = "100%";
+    document.getElementsByClassName("open")[0].style.display = "none";
+}
+
+function closeNav() {
+    document.getElementsByClassName("topnav")[0].style.width = "0";
+    document.getElementsByClassName("open")[0].style.display = "block";
+}

@@ -473,10 +473,7 @@ $(window).keydown(function(event) {
 
 function moveLine(number=slider.value, isSearch=0) {
 	// var number = slider.value; // Store the number of page
-	console.log(ori_num);
-	console.log(number);
-	
-	while(ori_num != number){
+	while((ori_num != number)&&(number<=(numFrames+1))){
 		
 	        allowScroll = 0;
 	        var allowForward = (frame[numFrames-1].stage <= 1) ? true : false;
@@ -499,8 +496,6 @@ function moveLine(number=slider.value, isSearch=0) {
 	    
 		if(ori_num < number){ori_num++;}
 	   	else {ori_num--;}
-	    console.log(ori_num);
-	    console.log(number);
     }
     if(isSearch) turnPage(ori_num);
 }

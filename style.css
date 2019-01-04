@@ -1483,8 +1483,8 @@ img{
     position: fixed;
     font-size:30px;
     cursor:pointer;
-    left: 5px;
-    top: 5px;
+    left: 10px;
+    top: 10px;
 }
 
 .Search {

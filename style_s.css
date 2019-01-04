@@ -1,0 +1,369 @@
+
+*{box-sizing: border-box;}
+html {
+  height: 100%;
+  width: 100%;
+}
+body{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000 url("./image/background.png") center center fixed no-repeat!important;
+  background-size:cover!important;
+
+}
+.block2{
+  top:10%;
+  height: 93%;
+  width: 100%;
+  position: absolute;
+  overflow: auto;
+}
+img{
+  object-fit: cover;
+}
+p{
+  font-size: 3.8vw; 
+}
+b{
+  font-size: 4vw;
+}
+.topnav{
+  background: #E3F2FD;
+  opacity: 0.9;
+  position: fixed;
+  top: 0%;
+  height: 10%;
+  width: 100%;
+  z-index: 11;
+  box-shadow:0px 2px 2px #FAFAFA;
+}
+.login{
+  position: fixed;
+  top:10%;
+  right: 3%;
+  width: 55%;
+  height: 8%;
+  background: #FAFAFA;
+  opacity: 0.95;
+  z-index: 13;
+  border-radius:10%;
+}
+#usernow{
+  display: none;
+  position: absolute;
+  font-size: 1.2em;
+  top: 12%;
+  left: 7%;
+}
+.logout{
+  display: none;
+  position: absolute;
+  font-size: 1.2em;
+  top: 110%;
+  right: 7%;
+  z-index: 14;
+}
+.Search{
+  left: 20%;
+  width: 50%;
+  height: 70%;
+  position: absolute;
+  top: 18%;
+}
+
+.Search #mySearch {
+  font-size: 2.4vh;    
+  border: none;
+  outline: none;
+  color: rgba(0,0,0,0.7);
+  padding: 1% 5%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255,255,255,0.87);
+  font-family: inherit;
+  margin: 0;
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: .28571429rem;
+  box-shadow: none;
+}
+
+.search-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: .28571429rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+#myMenu {
+  float: none;
+  color: black;
+  width: 100%;
+  padding: 10px 12px;
+  margin: 0;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-radius: 2%;
+}
+.closebtn{
+  position: absolute;
+  display:none;
+  bottom:-5.5vh;
+  left: 2vw;
+  z-index: 13;
+  font-size: 5vh;
+}
+.person{
+  position: absolute;
+  right: 3%;
+  top: 10%; 
+  width: 14%;
+  height: 100%;
+}
+.person_image{
+  border-radius:60%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;   
+}
+.sub_menu{
+  overflow: hidden;
+  background: #FAFAFA;
+  opacity: 0.95;
+  position: fixed;
+  top: 10%;
+  height: 30%;
+  width: 0%;
+  z-index: 12;
+}
+.container2{
+  position: absolute;
+  top:7%;
+  left: 15%;
+  width: 70%;
+  height: 300%;
+}
+#bg{
+  position: absolute;
+  left: -12.5%;
+  top:0px;
+  border-radius: 10%;
+  width:125%;
+}
+.show{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.fade_pic{
+  position: absolute;
+  width: 100%;
+  height:100%;
+}
+.reveal_pic{
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  height:80%;
+}
+
+.blockTitle{
+  font-family: "Noto Sans TC", sans-serif;
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  top: 85%;
+}
+
+.behind{
+  width: 70%;
+  height:100%;
+  opacity: 0;
+  position: absolute;
+}
+
+.block {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  padding-top: 0px; 
+  overflow: hidden;
+}
+.open {
+  position: absolute;
+  left: 5%;
+  top: 28%;
+  color: #443f3b;
+  text-align: center;
+  font-size: 5vh;
+  z-index: 3;
+}
+
+.sub_menu > .icon {
+  position: absolute;
+  color: #443f3b;
+  left: 25%;
+  width: 50%;
+  font-size: 5vh;
+  z-index: 3;
+  float:left;
+}
+.home{
+  display: none;
+}
+.icon_text{
+  font-size: 3vh;
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  left: 38%;
+}
+.about{
+  top: 9%;
+}
+.set_music{
+  top: 70%;
+  width: 100%;
+  height: 25%;
+  display: block;
+}
+.settingbtn{
+  display: none;
+}
+.game{
+  top: 42%;
+}
+
+.visible{
+  background-color:whitesmoke;
+}
+
+.reveal{
+  margin-top: 20vw;
+  position: relative;
+  border-radius:10px;
+  box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+}
+
+.reveal > div.hidden.content > p{
+  font-family: "Noto Sans TC", sans-serif;
+  margin-top: 35%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.fadeBlock{
+  border-radius:60%;
+  position: relative;
+  box-shadow:2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+  margin-top: 20vw;
+}
+
+.fadeBlock > div.behind > p{
+  font-family: "Noto Sans TC", sans-serif;
+  border-radius:60%;
+  position: relative;
+  top: 15%;
+  left: 25%;
+}
+
+#v0{
+  height: 130vw;
+  margin-top: 6vw;   
+}
+
+#v0 > div.hidden.content > center >video{
+  padding-top: 30vw;
+}
+
+#b0 {
+  height: 130vw;
+}
+
+#b1,#b2,#b3,#b4,#b6{
+  height: 100vw;
+}
+
+#b0> div.hidden.content > p{
+  margin-top: 9%;
+}
+
+
+#b5,#b7,#b8,#b9,#b10,#b11,#b12,#b13,#b17{
+  height: 90vw; 
+}
+
+#b16> div.hidden.content > p{
+  margin-top: 19%;
+}
+#b14,#b15,#b19,#b24{
+  height: 110vw;
+}
+#b20> div.hidden.content > p{
+  margin-top: 19%;
+}
+
+#b22{
+  height: 140vw;
+}
+#b22> div.hidden.content > p{
+  margin-top: 9%;
+}
+
+#b16,#b18,#b20,#b25, #b30, #b31, #b36, #b37{
+  height: 130vw;
+}
+#b25> div.hidden.content > p{
+  margin-top: 19%;
+}
+#b30> div.hidden.content > p{
+  margin-top: 19%;
+}
+#b37> div.hidden.content > p{
+  margin-top: 11%;
+}
+#b23,#b21,#b26, #b27, #b28, #b29, #b32, #b33, #b34, #b35{
+  height: 90vw;
+}
+/*-----------------------------------*/
+.character,#container{
+  display: none;
+}
+@media screen and (orientation: landscape) {
+  .topnav{
+    height: 14%;
+  }
+  .sub_menu{
+    top: 14%;
+  }
+  .sub_menu > .icon {
+    width: 30%;
+    left: 35%;
+  }
+  .block2{
+    top: 14%;
+    height: 89%;
+  }   
+  .person{
+    top: 5%;
+    width: 9%;
+    height: 95%;
+    right: 0.5%;
+  }
+  .login{
+    top: 14%;
+  }
+  #bars{
+    font-size: 5vw;
+    top: 23%;
+  }
+}

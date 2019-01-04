@@ -1489,7 +1489,7 @@ img{
 
 .Search {
   float: left;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .Search #mySearch {
@@ -1506,6 +1506,7 @@ img{
 .search-content {
   display: none;
   position: absolute;
+  top: 90%;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -1588,11 +1589,11 @@ img{
     padding: 25px 16px;
     font-size: 20px;
 }
-
+/*
 .topnav .icon {
   display: none;
 }
-
+*/
 .setting {
   float: left;
   overflow: hidden;
@@ -1633,6 +1634,12 @@ img{
 .setting:hover .settingItems {
     display: block;
 } 
+.person{
+  display:none;
+}
+.sub_menu{
+  display:block;
+}
 
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child), .dropdown .dropbtn {

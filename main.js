@@ -83,7 +83,9 @@ function Frame(index) {
 
 for(i = 0; i < numFrames; i++) {
     frame.push(new Frame(i));
-    frame[i].target.style.bottom = EndPos;
+    if(width>1100){
+      frame[i].target.style.bottom = EndPos;
+    }
 }
 /*functfion Music(index) {
     this.index = index;
@@ -95,10 +97,12 @@ for(j = 0; j < numMusic; j++) {
     music.push(new Music(i));
 }
 */
-frame[0].target.style.bottom = initPos;
+if(width>1100){
+  frame[0].target.style.bottom = initPos;
+}
 
 $(window).mousewheel(function(e) {
-	if(allowScroll) {
+	if(allowScroll&&(width>1100)) {
         allowScroll = 0;
         var allowForward = (frame[numFrames-1].stage <= 1) ? true : false;
     	var allowBackward = (frame[0].stage >= 2) ? true : false;
@@ -418,13 +422,20 @@ function onload() {
         username = getCookie("Username");
         for(i = 0; i < numFrames; i++) {
             frame.push(new Frame(i));
-            frame[i].target.style.bottom = EndPos;
+            if(width>1100){
+              frame[i].target.style.bottom = EndPos; 
+            }else{addHoverEffect(frame[i]);}
         }
-        frame[0].target.style.bottom = initPos;
+        if(width>1100){
+          frame[0].target.style.bottom = initPos;
+        }
+        
         // initial setting
         for(i = 0; i < numFrames; i++) {
             if(frame[i].stage <= 0){
+              if(width>1100){
                 frame[i].target.style.display = "none";
+              }
             }
             else if(frame[i].stage == 2) {
                 addHoverEffect();
@@ -615,15 +626,37 @@ $(document).mouseup(function(e)
 });
 
 function openNav() {
+  if(width>1100){
     document.getElementsByClassName("topnav")[0].style.height = "49.33px";
     document.getElementsByClassName("open")[0].style.display = "none";
+    document.getElementsByClassName("topnav")[0].style.overflow = "visible";
+  }
+  else{
+    var div=$(".sub_menu");
+    div.css("right","auto");
+    div.animate({width:'100%'},"fast");
+    $(".closebtn").toggle();
+  }
 }
 
 function closeNav() {
+  if(width>1100){
     document.getElementsByClassName("topnav")[0].style.height = "0";
     document.getElementsByClassName("open")[0].style.display = "block";
+    document.getElementsByClassName("topnav")[0].style.overflow = "hidden";
+  }
+  else{
+    var div=$(".sub_menu");
+    div.css("left","auto");
+    div.animate({width:'0%'},"fast");
+    $(".closebtn").toggle();
+  }
 }
-
+function openLog(){
+  $(".login").toggle();
+  $("#usernow").toggle();
+  $(".logout").toggle();
+}
 /*---------Cookie------------*/
 function getCookie(cname) {
     var name = cname + "=";

@@ -125,7 +125,7 @@ img{
    
 
 }
-
+/*
 .icon {
     position: absolute;
     height: 2%;
@@ -136,7 +136,7 @@ img{
     padding: 5px 5px;
     border-radius: 30%;
     z-index: 3;
-}
+}*/
 
 .floating.message{
     position: absolute;

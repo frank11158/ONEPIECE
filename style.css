@@ -1360,8 +1360,8 @@ img{
     height: 40px;
     margin: -20px -3px 0;
 /*    border-radius: 50%;
-    background: #37adbf;*/
-    /* background-image: url("merry.gif"); */
+    background: #37adbf;
+    background-image: url("merry.gif"); */
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -1372,7 +1372,7 @@ img{
     height: 18px;
     margin: -8px 0 0;
     border-radius: 50%;
-    background: #37adbf;
+/*    background: #37adbf;*/
     cursor: pointer;
     border: 0 !important;
 }
@@ -1381,7 +1381,7 @@ img{
     height: 18px;
     margin: -8px 0 0;
     border-radius: 50%;
-    background: #37adbf;
+/*    background: #37adbf;*/
     cursor: pointer;
     border: 0 !important;
 }
@@ -1415,14 +1415,14 @@ img{
     color: transparent;
 }
 .range-labels {
-    margin: 18px -20px 0;
+    margin: 18px -10px 0;
     padding: 0;
     list-style: none;
 }
 .range-labels li {
     position: relative;
     float: left;
-    width: 4.25%;
+    width: 2.11%;
     text-align: center;
     color: #3c3c3c;
     font-size: 14px;
@@ -1440,12 +1440,12 @@ img{
     background: #3c3c3c;
     border-radius: 50%;
 }
-.range-labels .active {
+/*.range-labels .active {
     color: #37adbf;
 }
 .range-labels .selected::before {
     background: #37adbf;
-}
+}*/
 .range-labels .active.selected::before {
     display: none;
 }

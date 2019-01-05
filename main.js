@@ -522,7 +522,7 @@ var sheet = document.createElement('style'),
 sheet.textContent = ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
 document.body.appendChild(sheet);
 
-var number = slider.value; // Store the number of page(1 ~ 28)
+var number = slider.value; // Store the number of page(1 ~ 40)
 
 function turnPage(index) {
     
@@ -530,7 +530,7 @@ function turnPage(index) {
     $('.range-labels li').removeClass('active selected');
     
     slider.value = index;
-    val = (index - 1) * 5.23;
+    val = (index - 1) * 2;
     style = '';
     var curLabel = $('.range-labels').find('li:nth-child(' + index + ')');
      
@@ -538,10 +538,11 @@ function turnPage(index) {
     curLabel.prevAll().addClass('selected');
      
     // Change background gradient
-    for (var i = 0; i < prefs.length; i++) {
+    /* Cancel color of timeline */
+/*    for (var i = 0; i < prefs.length; i++) {
       style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, transparent ' + val + '%, transparent 100%)}';
       style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
-    }
+    }*/
     if(slider.value < 16) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
     else if(16 <= slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
     else style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "sunny.gif" + "\");";
@@ -549,8 +550,8 @@ function turnPage(index) {
 }
 
 var getTrackStyle = function (el) {  
-  var curVal = el.value,
-      val = (curVal - 1) * 5.23,
+  var curVal = el.value
+      val = (curVal - 1) * 2,
       style = '';
     number = el.value;
   // Set active label
@@ -562,15 +563,16 @@ var getTrackStyle = function (el) {
   curLabel.prevAll().addClass('selected');
   
   // Change background gradient
-  for (var i = 0; i < prefs.length; i++) {
+  /* Cancel color of timeline */
+/*  for (var i = 0; i < prefs.length; i++) {
     style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, transparent ' + val + '%, transparent 100%)}';
     style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
-  }
+  }*/
 
   if(slider.value < 16) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
   else if(16 <= slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
   else style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "sunny.gif" + "\");";
-  return style;
+ return style;
 }
 
 $rangeInput.on('input', function () {

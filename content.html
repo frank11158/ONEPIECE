@@ -1,453 +1,597 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ONEPIECE Timeline</title>
-        <link rel="Shortcut Icon" type="image/x-icon" href="./image/One_Piece_Logo_small.jpg" />   
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ONEPIECE Timeline</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="./image/One_Piece_Logo_small.jpg" />   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1101px)" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1100px)" href="style_mobile.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
 
-    <body onload="onload()">
+  <body onload="onload()">
 
+    <div class="topnav" id="myTopnav">
+      <a href="./content.html" class="home" style="font-size:17px;padding: 15px 16px;"><i class="fa fa-fw fa-home"></i></a>
 
-        <audio src="./music/01.mp3" class="music" id="bg"autostart="true" loop="true" controls="true"></audio>
-        <a class="icon" id="icon-home" href="./content.html"><i class="fa fa-fw fa-home"></i></a>
-        <a class="icon" id="icon-about" href="./aboutUs/index.html"><i class="fa fa-fw fa-id-card"></i></a>
-        <a class="icon" id="icon-game" href="./2048/2048_onepiece_ver3.html"><i class="fa fa-fw fa-gamepad"></i></a>
-
-
-        <img src="./image/characters/1.png" class="character" id="c-1">
-        <img src="./image/characters/2.png" class="character" id="c-2">
-        <img src="./image/characters/3.png" class="character" id="c-3">
-        <img src="./image/characters/4.png" class="character" id="c-4">
-        <img src="./image/characters/5.png" class="character" id="c-5">
-        <img src="./image/characters/6.png" class="character" id="c-6">
-        <img src="./image/characters/7.png" class="character" id="c-7">
-        <img src="./image/characters/8.png" class="character" id="c-8">
-        <img src="./image/characters/9.png" class="character" id="c-9">
-
-        <div id="container">
-            <div class="range" onchange="moveLine()">
-                <input type="range" min="1" max="42" steps="1" value="1" id="timeLine">
-            </div>
-            <ul class="range-labels">
-                <li class="active selected">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>    
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-                <li>16</li>
-                <li>17</li>
-                <li>18</li>
-                <li>19</li>
-                <li>20</li>
-        </div> 
-
-
-
-        <div class="block ui move right reveal" id="v0">
-            <div class="show visible content">
-                <img src="./image/0.jpg"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">Introduction</b>
-            </div>
-            <div class="hidden content">
-                <center>
-                    <video src="./video/01.mp4" controls="true" width= "90%" height= "70%"></video>
-                </center>>
-            </div>                
+      <div class="ui icon input Search">
+        <input id="mySearch" type="text" placeholder="Search.." onkeyup="search()">
+        <i class="search icon"></i>
+        <div class="search-content">
+          <ul id="myMenu"></ul>
         </div>
+      </div>
+      <div class="sub_menu">
+        <a class="icon about" href="./aboutUs/index.html"><i class="fa fa-fw fa-id-card"></i><div class="icon_text">About Us</div></a>
+        <a class="icon game" href="./2048/2048_onepiece_ver3.html"><i class="fa fa-fw fa-gamepad"></i><div class="icon_text">Game</div></a>
+        <a class="icon set_music">
+          <div class="setting">
+            <button class="settingbtn">
+              <i class="fa fas fa-cog"></i>
+              <p id="set">Setting</p> 
+              <!--<i class="fa fa-caret-down"></i>-->
+            </button>
+            <div class="settingItems">
+              <audio src="./music/01.mp3" class="music" id="bg"autostart="true" loop="true" controls="true"></audio>
+            </div>
+          </div>
+        </a>
+      </div>
+      <a href="index.html" class="logout"><i class="fa fas fa-skull-crossbones"></i><br>Logout</a>
+      <div class="person" onclick="openLog()">
+        <img src="./image/11-2.png"  class="person_image">
+      </div>
+      <div class="login" style="display:none;">
+        <p id="usernow">UserName</p>
+      </div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="open" onclick="openNav()"><i class="fa fa-bars"></i></div>
+    </div>
 
 
-        <div class="block ui move reveal" id="b0">
+
+    <img src="./image/characters/1.png" class="character" id="c-1">
+    <img src="./image/characters/2.png" class="character" id="c-2">
+    <img src="./image/characters/3.png" class="character" id="c-3">
+    <img src="./image/characters/4.png" class="character" id="c-4">
+    <img src="./image/characters/5.png" class="character" id="c-5">
+    <img src="./image/characters/6.png" class="character" id="c-6">
+    <img src="./image/characters/7.png" class="character" id="c-7">
+    <img src="./image/characters/8.png" class="character" id="c-8">
+    <img src="./image/characters/9.png" class="character" id="c-9">
+
+    <div id="container">
+      <div class="range" onchange="moveLine()">
+        <input type="range" min="1" max="40" steps="1" value="1" id="timeLine">
+      </div>
+      <ul class="range-labels">
+        <li class="active selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>    
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+      </div> 
+      <div class="block2">
+        <div class="container2">
+          <div class="block ui move right reveal" id="v0">
+
             <div class="show visible content">
-                <img src="./image/00.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">One Piece</b>
+              <img src="./image/0.jpg"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">Introduction</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">
+              <center>
+                <video src="./video/01.mp4" controls="true" width= "90%" height= "70%"></video>
+              </center>
+            </div>                
+          </div>
+
+
+          <div class="block ui move reveal" id="b0">
+            <div class="show visible content">
+              <img src="./image/00.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">One Piece</b>
+            </div>
+            <div class="hidden content">
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">One Piece</span>
                 800年前<br>空白的100年結束。<br>歷史本文中隱藏的【巨大王國】滅亡，20位國王（天龍人的始祖）創造了世界政府。<br>
                 48年前<br>倫巴海賊團被敵方海賊以有毒武器襲擊，全軍覆沒。當時為代理船長兼音樂家的布魯克死亡後以魂的狀態飄蕩在魔之三角海域一年。
                 <br>33年前<br>唐吉訶德·霍名古捨棄天龍人身份，一家四口離開瑪麗喬亞，不久其妻子染病而亡。
-                <br>26年前<br>來自歐哈拉的考古學家妮可·歐爾比亞和33名考古探險隊出海找尋歷史本文，歐爾比亞將年僅兩歲的女兒羅賓交由親戚照顧。</p>
+                <br>26年前<br>來自歐哈拉的考古學家妮可·歐爾比亞和33名考古探險隊出海找尋歷史本文，歐爾比亞將年僅兩歲的女兒羅賓交由親戚照顧。
+              </p>
             </div>                
-        </div>
+          </div>
 
 
-        <div class="block ui move reveal" id="b1">
-
+          <div class="block ui move reveal" id="b1">
             <div class="show visible content">
-                <img src="./image/1.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">[22Y]大海賊時代</b>
+              <img src="./image/1.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">[22Y]大海賊時代</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">22年前<br>羅傑向世界政府自首，在羅格鎮被公開處刑，大海賊時代開始。<br>
-                <b style="font-size:16px;line-height:180%">羅傑笑著說道：「想要我的財寶嗎？想要的話可以全部給你，去找吧！我把所有財寶都放在那裡」。</b></p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">[22Y]大海賊時代</span>
+                22年前<br>羅傑向世界政府自首，在羅格鎮被公開處刑，大海賊時代開始。<br>
+                <b style="font-size:16px;line-height:180%">羅傑笑著說道：「想要我的財寶嗎？想要的話可以全部給你，去找吧！我把所有財寶都放在那裡」。</b>
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block ui move up reveal" id="b2">
+          <div class="block ui move up reveal" id="b2">
             <div class="show visible content">
-                <img src="./image/2.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">[20Y]歐哈拉滅島</b>
+              <img src="./image/2.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">[20Y]歐哈拉滅島</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">歐哈拉因非常召集被毀滅，青雉放走8歲的妮可·羅賓，使之成為島上唯一倖存者，
-                但被以一級危險份子的身分被懸賞7,900萬貝里。</p>
-                <!<audio src="./music/01.mp3" class="music" id="m2" autostart="true" loop="true" controls="true"</audio>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">[22Y]大海賊時代</span>
+                歐哈拉因非常召集被毀滅，青雉放走8歲的妮可·羅賓，使之成為島上唯一倖存者，
+                但被以一級危險份子的身分被懸賞7,900萬貝里。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block ui move reveal" id="b3">
+          <div class="block ui move reveal" id="b3">
             <div class="show visible content">
-                <img src="./image/3.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">漢考克童年</b>
+              <img src="./image/3.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">漢考克童年</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">17年前<br>波雅·漢考克與兩個妹妹索妮亞、瑪莉被綁架集團抓走，淪為天龍人的奴隸。<br>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">漢考克童年</span>
+                17年前<br>波雅·漢考克與兩個妹妹索妮亞、瑪莉被綁架集團抓走，淪為天龍人的奴隸。<br>
                 13年前<br>「魚人海賊團」探險家費雪·泰格徒手爬上「紅土大陸」，
-                大肆破壞並解放了聖地「馬力喬亞」的幾千名「天龍人」的奴隸，波雅·漢考克三姐妹也因此恢復自由。</p>
+                大肆破壞並解放了聖地「馬力喬亞」的幾千名「天龍人」的奴隸，波雅·漢考克三姐妹也因此恢復自由。
+              </p>
             </div>                
-        </div>
+          </div>
 
 
-        <div class="block ui move up reveal" id="b4">
+          <div class="block ui move up reveal" id="b4">
             <div class="show visible content">
-                <img src="./image/4.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">[12Y]香克斯斷臂</b>
+              <img src="./image/4.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">[12Y]香克斯斷臂</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">路飛誤食紅髮海賊團戰利品橡膠果實，因而無法游泳，在一次誤入大海差點被海王類吞食時，香克斯衝去救魯夫，被海王類撕咬下一隻手臂，離開佛夏村時交付信物草帽給魯夫。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">[12Y]香克斯斷臂</span>
+                路飛誤食紅髮海賊團戰利品橡膠果實，因而無法游泳，在一次誤入大海差點被海王類吞食時，香克斯衝去救魯夫，被海王類撕咬下一隻手臂，離開佛夏村時交付信物草帽給魯夫。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b5">
+          <div class="block fadeBlock" id="b5">
             <img src="./image/5.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">10年前<br>魯夫被卡普帶往柯爾波山交由山賊頭目達旦照顧，因此結識了艾斯和薩波，
-                三人喝下「交杯酒」成為義兄弟，後來薩波被父親強行帶走，沒多久哥亞王國皇族與藍果醬海賊團勾結，放火燒毀非確定物的終點站。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">10年前</span>
+                10年前<br>魯夫被卡普帶往柯爾波山交由山賊頭目達旦照顧，因此結識了艾斯和薩波，
+                三人喝下「交杯酒」成為義兄弟，後來薩波被父親強行帶走，沒多久哥亞王國皇族與藍果醬海賊團勾結，放火燒毀非確定物的終點站。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block ui move reveal" id="b6">
+          <div class="block ui move reveal" id="b6">
             <div class="show visible content">
-                <img src="./image/6.png"  class="reveal_pic">
-                <b class="blockTitle" style="font-size:18px">[9Y]斷腳哲普</b>
+              <img src="./image/6.png"  class="reveal_pic">
+              <b class="blockTitle" style="font-size:18px">[9Y]斷腳哲普</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">9年前<br>客船奧比特號受到了廚師海賊團的襲擊，同時遭遇到了暴風雨，奧比特號的見習生香吉士被海浪捲走，
-                廚師海賊團的船長紅腳哲普跳下船救他，兩人一起漂流到荒島，哲普將全部糧食留給香吉士，自己則砸斷引以為傲的右腿為食。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">[9Y]斷腳哲普</span>
+                9年前<br>客船奧比特號受到了廚師海賊團的襲擊，同時遭遇到了暴風雨，奧比特號的見習生香吉士被海浪捲走，
+                廚師海賊團的船長紅腳哲普跳下船救他，兩人一起漂流到荒島，哲普將全部糧食留給香吉士，自己則砸斷引以為傲的右腿為食。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b7">
+          <div class="block fadeBlock" id="b7">
             <img src="./image/7.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:16px;line-height:160%">8年前<br>惡龍來到了可可亞西村開始統治。反抗的貝魯梅爾被殺，10歲的娜美加入惡龍海賊團。</p>
+              <p style="font-size:16px;line-height:160%">
+                <span style="display:none">8年前 惡龍</span>
+                8年前<br>惡龍來到了可可亞西村開始統治。反抗的貝魯梅爾被殺，10歲的娜美加入惡龍海賊團。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b8">
+          <div class="block fadeBlock" id="b8">
             <img src="./image/8.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:16px;line-height:160%">8年前<br>當時26歲的佛朗基被海列車撞飛，雖然被認定為死亡，可是佛朗基自我改造成鐵人，
-                秘密的活了下來。</p>
+              <p style="font-size:16px;line-height:160%">
+                <span style="display:none">8年前 佛朗基</span>
+                8年前<br>當時26歲的佛朗基被海列車撞飛，雖然被認定為死亡，可是佛朗基自我改造成鐵人，
+                秘密的活了下來。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b9">
+          <div class="block fadeBlock" id="b9">
+            <span style="display:none">6年前 多尼多尼·喬巴</span>
             <img src="./image/9.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:16px;line-height:160%">6年前<br>Dr.西魯魯克撿到一隻受了重傷的麋鹿，並給他取名「多尼多尼·喬巴」，然後為了治療，開始共同生活。</p>
+              <p style="font-size:16px;line-height:160%">
+                <span style="display:none">6年前 多尼多尼·喬巴</span>
+                6年前<br>Dr.西魯魯克撿到一隻受了重傷的麋鹿，並給他取名「多尼多尼·喬巴」，然後為了治療，開始共同生活。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b10">
+          <div class="block fadeBlock" id="b10">
             <img src="./image/10.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:16px;line-height:160%">5年前<br>騙人布、洋蔥頭、蘿蔔頭、青椒頭組成「騙人布海賊團」。</p>
+              <p style="font-size:16px;line-height:160%">
+                <span style="display:none">5年前 騙人布海賊團</span>
+                5年前<br>騙人布、洋蔥頭、蘿蔔頭、青椒頭組成「騙人布海賊團」。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b11">
+          <div class="block fadeBlock" id="b11">
             <img src="./image/11.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:30px;line-height:160%">2年前<br>魯<br>夫<br>出<br>海</p>
+              <p style="font-size:30px;line-height:160%">
+                <span style="display:none">2年前 魯夫出海</span>
+                2年前<br>魯<br>夫<br>出<br>海
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b12">
+          <div class="block fadeBlock" id="b12">
             <img src="./image/12.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:16px;line-height:150%">索隆加入: </br>草帽海賊團的第1名成員，魯夫最初的夥伴，特徵是一頭綠色短髮、左臂綁著深綠色頭巾，貫徹自己的「武士道」，日復一日堅持嚴苛的身體訓練。原為狩獵海賊的賞金獵人，但在「斧手」蒙卡事件被魯夫所救，加入魯夫。</p>
+              <p style="font-size:16px;line-height:150%">
+                <span style="display:none">索隆加入</span>
+                索隆加入: <br>草帽海賊團的第1名成員，魯夫最初的夥伴，特徵是一頭綠色短髮、左臂綁著深綠色頭巾，貫徹自己的「武士道」，日復一日堅持嚴苛的身體訓練。原為狩獵海賊的賞金獵人，但在「斧手」蒙卡事件被魯夫所救，加入魯夫。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b13">
+          <div class="block fadeBlock" id="b13">
             <img src="./image/13.png"  class="fade_pic" >
             <div class="behind" >
-                <p style="font-size:14px;line-height:150%">騙人布加入: </br> 騙人布是草帽海賊團第2位夥伴。原為村裡的孩子團「騙人布海賊團」船長，羅布村與黑貓海賊團的戰鬥結束後，「騙人布海賊團」就此解散。本想以勇敢海上戰士的身分獨自出海，
-                後來在魯夫一句<b style="font-size:16px;line-height:180%">「我們已經是夥伴」</b>的邀約之下，加入草帽一夥，青梅竹馬可雅贈送的黃金梅利號正式啟航。</p>
+              <p style="font-size:14px;line-height:150%">
+                <span style="display:none">騙人布加入</span>
+                騙人布加入: <br> 騙人布是草帽海賊團第2位夥伴。原為村裡的孩子團「騙人布海賊團」船長，羅布村與黑貓海賊團的戰鬥結束後，「騙人布海賊團」就此解散。本想以勇敢海上戰士的身分獨自出海，
+                後來在魯夫一句<b style="font-size:16px;line-height:180%">「我們已經是夥伴」</b>的邀約之下，加入草帽一夥，青梅竹馬可雅贈送的黃金梅利號正式啟航。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b14">
+          <div class="block fadeBlock" id="b14">
             <img src="./image/14.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:16px;line-height:150%">香吉士加入: </br> 草帽海賊團廚師，稱號「黑腳」。草帽海賊團的第3位夥伴有著向上捲曲的眉毛，愛吸菸，恪遵騎士道精神，熱愛女性，是個「擁女主義者」，不論老少的女人都會極力保護。
-                在海上餐廳「巴拉蒂」與草帽海賊團相遇，為了尋找廚師間口耳相傳的傳說之海——ALL BLUE夢想加入。</p>
+              <p style="font-size:16px;line-height:150%">
+                <span style="display:none">香吉士加入</span>
+                香吉士加入: <br> 草帽海賊團廚師，稱號「黑腳」。草帽海賊團的第3位夥伴有著向上捲曲的眉毛，愛吸菸，恪遵騎士道精神，熱愛女性，是個「擁女主義者」，不論老少的女人都會極力保護。
+                在海上餐廳「巴拉蒂」與草帽海賊團相遇，為了尋找廚師間口耳相傳的傳說之海——ALL BLUE夢想加入。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block fadeBlock" id="b15">
+          <div class="block fadeBlock" id="b15">
             <img src="./image/15.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">娜美加入: </br> 娜美是草帽一夥的第4位夥伴。職位是航海士。特徵是橘髮和左肩的風車狀刺青。在可可亞西村成長，
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">娜美加入</span>
+                娜美加入: <br> 娜美是草帽一夥的第4位夥伴。職位是航海士。特徵是橘髮和左肩的風車狀刺青。在可可亞西村成長，
                 自小展現出製圖天份，被惡龍海賊團脅迫為其製圖。娜美向惡龍提出以製圖來賺取報酬，並以一億貝里買回可可亞西村，後發現被
-                惡龍欺騙。魯夫等人在得知娜美的過去後與惡龍海賊團為敵，擊敗惡龍海賊團後，娜美正式成為草帽海賊團的航海士。</p>
+                惡龍欺騙。魯夫等人在得知娜美的過去後與惡龍海賊團為敵，擊敗惡龍海賊團後，娜美正式成為草帽海賊團的航海士。
+              </p>
             </div>
-        </div> 
+          </div> 
 
 
-        <div class="block ui move right reveal" id="b16">
+          <div class="block ui move right reveal" id="b16">
             <div class="show visible content">
-                <img src="./image/16.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">羅格鎮</b>
+              <img src="./image/16.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">羅格鎮</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">羅格鎮</span>
                 魯夫一伙人到達了羅格鎮，這是進入偉大的航路之前必經的地方，也是『海賊王』哥爾•D•羅傑的故鄉和後來被公開處刑的所在，
                 因此這裡又被稱為「開始與結束的城鎮」。魯夫興奮的爬上海賊王被處死的高台，被「小丑」巴其所擒。在巴其的刀即將砍下去時，
                 魯夫笑著對草帽海賊團團員說：<b style="font-size:16px;line-height:180%">「抱歉，我要死了！」</b>此時湊巧一道閃電劈向高台，魯夫因為身體不導電而得救。返回船上的途中，
-                魯夫在鎮上的入口處一度被斯摩格抓住，在『革命家』多拉格的幫助而得以脫身。</p>
+                魯夫在鎮上的入口處一度被斯摩格抓住，在『革命家』多拉格的幫助而得以脫身。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b17">
+          <div class="block fadeBlock" id="b17">
             <img src="./image/17.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">喬巴加入: </br>  草帽海賊團船醫，稱號「愛吃棉花糖的寵物」。草帽海賊團的第5位夥伴。動物系
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">喬巴加入</span>
+                喬巴加入: <br>  草帽海賊團船醫，稱號「愛吃棉花糖的寵物」。草帽海賊團的第5位夥伴。動物系
                 「人人果實」的能力者，是一隻藍鼻子的馴鹿。在前往阿拉巴斯坦途中娜美生病，在磁鼓島上求醫進而結識喬巴，
-                喬巴帶著西魯魯克的遺願加入海賊團。</p>
+                喬巴帶著西魯魯克的遺願加入海賊團。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block ui move up reveal" id="b18">
+          <div class="block ui move up reveal" id="b18">
             <div class="show visible content">
-                <img src="./image/18.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">阿拉巴斯坦</b>
+              <img src="./image/18.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">阿拉巴斯坦</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">阿拉巴斯坦</span>
                 魯夫一行人為了幫助薇薇，阻止克洛克達爾理想國的計畫前往阿拉巴斯坦，抵達後，當地因為克洛克達爾的煽動爆發內戰，
                 魯夫最後擊敗了克洛克達爾，內戰亦隨之結束，期間結識了小馮馮(初遇路飛，就與路飛成為了朋友。在海軍到來前保護梅利
                 號並以身做餌引走了海軍，再次保護了路飛一夥，因此被抓後關進了大監獄推進城)後來草帽一夥離開阿拉巴斯坦王國時，
-                背對著薇薇舉起了畫在左手臂上的「X」記號（代表夥伴間的象徵）就此道別。</p>
+                背對著薇薇舉起了畫在左手臂上的「X」記號（代表夥伴間的象徵）就此道別。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b19">
+          <div class="block fadeBlock" id="b19">
             <img src="./image/19.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">羅賓加入: </br> 草帽海賊團考古學家，稱號「惡魔之子」。草帽海賊團第6位夥伴。擁有超人系「花花果實」的開花人，考古學之島歐哈拉的遺孤，唯一能看懂歷史本文的人，原為巴洛克華克副
-                社長兼最高司令官，慘遭克洛克達爾重傷害但是沒死，後來自殺不成反被魯夫所救，失去人生目標，認為救了他的魯夫要負責，故加入了草帽海賊團。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">羅賓加入</span>
+                羅賓加入: <br> 草帽海賊團考古學家，稱號「惡魔之子」。草帽海賊團第6位夥伴。擁有超人系「花花果實」的開花人，考古學之島歐哈拉的遺孤，唯一能看懂歷史本文的人，原為巴洛克華克副
+                社長兼最高司令官，慘遭克洛克達爾重傷害但是沒死，後來自殺不成反被魯夫所救，失去人生目標，認為救了他的魯夫要負責，故加入了草帽海賊團。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block ui move up reveal" id="b20">
+          <div class="block ui move up reveal" id="b20">
             <div class="show visible content">
-                <img src="./image/20.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">空島</b>
+              <img src="./image/20.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">空島</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">空島</span>
                 乘著上升海流，一行人來到了海拔一萬公尺高空的「白海」。但莫名其妙被冠上了「非法入國」的罪名，被迫接受「神之島」阿帕亞多上四神官們的「試煉」考驗，擁有「轟雷果實」能力的「神」艾涅爾，在神之島設計了一場81人的生存淘汰賽，而他真正的目的是打造一艘大型飛船方舟「箴言」，並帶著來自古早香狄亞人打造的巨大黃金鐘樓前往「無限大地」，同時將空島打回青海，得知後的大家站出來反抗艾涅爾，卻都慘敗。
-                魯夫前去營救，由於空島沒有「橡膠」，不導電的橡膠體質成了艾涅爾最棘手的天敵，最後魯夫擊敗艾涅爾並得到巨量黃金，羅賓在空島黃金鐘看到歷史本文。</p>
+                魯夫前去營救，由於空島沒有「橡膠」，不導電的橡膠體質成了艾涅爾最棘手的天敵，最後魯夫擊敗艾涅爾並得到巨量黃金，羅賓在空島黃金鐘看到歷史本文。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b21">
+          <div class="block fadeBlock" id="b21">
             <img src="./image/21.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%"> 在水之七島將黃金變賣成2億貝里欲購買新船，因騙人布與魯夫對黃金梅利號理念不同，
-                騙人布憤而離團，羅賓為了保護夥伴，自願跟CP9去司法島，而佛朗基因為擁有冥王設計圖一起被抓走。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">水之七島</span>
+                在水之七島將黃金變賣成2億貝里欲購買新船，因騙人布與魯夫對黃金梅利號理念不同，
+                騙人布憤而離團，羅賓為了保護夥伴，自願跟CP9去司法島，而佛朗基因為擁有冥王設計圖一起被抓走。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block ui move right reveal" id="b22">
+          <div class="block ui move right reveal" id="b22">
             <div class="show visible content">
-                <img src="./image/22.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">司法島</b>
+              <img src="./image/22.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">司法島</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">司法島</span>
                 為了拯救羅賓，草帽一行人來到了世界政府轄下的司法之島「艾尼愛斯大廳」，得知羅賓的痛苦與不堪回首的過去，草帽海賊團當眾燒毀了代表世界政府的旗幟（向全世界宣戰），
-                讓羅賓當場放聲痛哭，大喊出<b style="font-size:16px;line-height:180%">「我要活下去!!!!」</b>。CP9長官斯帕達姆將鎖住羅賓的「海樓石手銬」鑰匙交到五名CP9手中；但當中只有一條是真的。一行人為了搶到正確的鑰匙而與CP9展開激戰，最終擊敗了所有CP9並成功解放羅賓；其中號稱「歷史上最強的CP9」羅布•路基也被魯夫擊敗，魯夫也因此開發2檔，3檔，在離開司法島時，因之前斯帕達姆誤觸非常召集，眾人被海軍戰艦重重包圍，沒有退路的時候，梅利號及時出現帶領大家離開司法島，完成生命中最後一次航程。。</p>
+                讓羅賓當場放聲痛哭，大喊出<b style="font-size:16px;line-height:180%">「我要活下去!!!!」</b>
+                CP9長官斯帕達姆將鎖住羅賓的「海樓石手銬」鑰匙交到五名CP9手中；但當中只有一條是真的。一行人為了搶到正確的鑰匙而與CP9展開激戰，最終擊敗了所有CP9並成功解放羅賓；其中號稱「歷史上最強的CP9」羅布•路基也被魯夫擊敗，魯夫也因此開發2檔，3檔，在離開司法島時，因之前斯帕達姆誤觸非常召集，眾人被海軍戰艦重重包圍，沒有退路的時候，梅利號及時出現帶領大家離開司法島，完成生命中最後一次航程。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b23">
+          <div class="block fadeBlock" id="b23">
             <img src="./image/23.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%"> 魯夫爺爺中將卡普出現，並告知魯夫身世，其父為革命軍首領，多拉格，
-                佛朗基與艾斯巴古合力建造千陽號，佛朗基加入，千陽號正式出航，騙人布道歉後回歸。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">千陽號</span>
+                魯夫爺爺中將卡普出現，並告知魯夫身世，其父為革命軍首領，多拉格，
+                佛朗基與艾斯巴古合力建造千陽號，佛朗基加入，千陽號正式出航，騙人布道歉後回歸。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b24">
+          <div class="block fadeBlock" id="b24">
             <img src="./image/24.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">佛朗基加入: </br> 草帽海賊團的第7位夥伴。特徵是藍色的飛機頭和太陽眼鏡，穿著海灘裝和一件三角泳褲，以及鐵製的鼻子和獨特形狀的下巴。是傳說中的船匠湯姆的其中一個徒弟。是一名改造人，全身上下都藏著威力強大的武器，可以用身體抵擋各種攻擊，弱點是沒有改造的背部，在司法之島事件後，加入草帽海賊團，為千陽號的建造者。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">佛朗基加入</span>
+                佛朗基加入: <br> 草帽海賊團的第7位夥伴。特徵是藍色的飛機頭和太陽眼鏡，穿著海灘裝和一件三角泳褲，以及鐵製的鼻子和獨特形狀的下巴。是傳說中的船匠湯姆的其中一個徒弟。是一名改造人，全身上下都藏著威力強大的武器，可以用身體抵擋各種攻擊，弱點是沒有改造的背部，在司法之島事件後，加入草帽海賊團，為千陽號的建造者。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block ui move reveal" id="b25">
+          <div class="block ui move reveal" id="b25">
             <div class="show visible content">
-                <img src="./image/25.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">恐怖三桅帆船</b>
+              <img src="./image/25.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">恐怖三桅帆船</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">千陽號因暴風雨而航行到魔幻三角地帶，船漸漸駛向世界最大海賊船「恐怖三桅帆船」，
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">恐怖三桅帆船</span>
+                千陽號因暴風雨而航行到魔幻三角地帶，船漸漸駛向世界最大海賊船「恐怖三桅帆船」，
                 初遇吃了「黃泉果實」的神秘骷髏人布魯克，從以前就想要個音樂家的魯夫邀請布魯克成為同伴，但失去「影子」的布魯克不能照射到陽光，
                 因此拒絕。居住在恐怖三桅帆船裡是王下七武海 月光•摩利亞，為「影子果實」能力者，搶走許多海賊的影子並建立殭屍軍團。
                 草帽一伙陸續被抓住並且剝走了影子，草帽還賊團與殭屍大軍展開戰鬥，索隆打敗龍馬獲得名刀秋水。摩利亞加入戰局後，
-                草帽一伙面臨全軍覆沒的危機，而身上塞了一百人份影子的「噩夢•魯夫」及時出現，最終打敗摩利亞。</p>
+                草帽一伙面臨全軍覆沒的危機，而身上塞了一百人份影子的「噩夢•魯夫」及時出現，最終打敗摩利亞。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b26">
+          <div class="block fadeBlock" id="b26">
             <img src="./image/26.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">王下七武海之一的「暴君」巴索羅繆•大熊卻在此時來襲，執行世界政府的指令，將所有目睹摩利亞被擊敗的人抹殺。體力耗盡的草
-                帽一夥無力抵抗，為了捍衛魯夫的夢想，索隆願意犧牲自己的生命以換取魯夫頭顱，大熊將魯夫所有的痛苦和疲勞轉到索隆身上便放過他們一馬。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">巴索羅繆•大熊</span>
+                王下七武海之一的「暴君」巴索羅繆•大熊卻在此時來襲，執行世界政府的指令，將所有目睹摩利亞被擊敗的人抹殺。體力耗盡的草
+                帽一夥無力抵抗，為了捍衛魯夫的夢想，索隆願意犧牲自己的生命以換取魯夫頭顱，大熊將魯夫所有的痛苦和疲勞轉到索隆身上便放過他們一馬。
+              </p>
             </div>
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b27">
+          <div class="block fadeBlock" id="b27">
             <img src="./image/27.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">布魯克加入:<br>魯夫的第8位夥伴，草帽海賊團的音樂家。吃了「黃泉果實」的骷髏人，同時是一名劍擊高手，在奪回影子後為了完成和拉布的約定加入。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">布魯克加入</span>
+                布魯克加入:<br>魯夫的第8位夥伴，草帽海賊團的音樂家。吃了「黃泉果實」的骷髏人，同時是一名劍擊高手，在奪回影子後為了完成和拉布的約定加入。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block fadeBlock" id="b28">
+          <div class="block fadeBlock" id="b28">
             <img src="./image/28.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">前往夏波帝諸島，遇到雷利跟其他超新星，因為揍飛天龍人，被黃猿及巴索羅繆大熊追殺，草帽一夥約定三天後見，之後各自被大熊拍飛，魯夫掉落在女兒島。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">夏波帝諸島</span>
+                前往夏波帝諸島，遇到雷利跟其他超新星，因為揍飛天龍人，被黃猿及巴索羅繆大熊追殺，草帽一夥約定三天後見，之後各自被大熊拍飛，魯夫掉落在女兒島。
+              </p>
             </div>
-        </div>   
+          </div>   
 
-        <div class="block fadeBlock" id="b29">
+          <div class="block fadeBlock" id="b29">
             <img src="./image/29.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">在女兒島初遇漢考克，因保護女帝奴隸紋身秘密收穫女帝好感，
-                從報紙得知艾斯即將被公開處刑，在女帝幫助下成功潛入推進城營救艾斯。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">女兒島</span>
+                在女兒島初遇漢考克，因保護女帝奴隸紋身秘密收穫女帝好感，
+                從報紙得知艾斯即將被公開處刑，在女帝幫助下成功潛入推進城營救艾斯。
+              </p>
             </div>
-        </div>   
+          </div>   
 
-        <div class="block ui move up reveal" id="b30">
+          <div class="block ui move up reveal" id="b30">
             <div class="show visible content">
-                <img src="./image/30.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">推進城</b>
+              <img src="./image/30.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">推進城</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">在漢考克的幫助下，魯夫潛入海底監獄，在地下一樓遇到正在逃獄的「小丑」巴其，
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">推進城</span>
+                在漢考克的幫助下，魯夫潛入海底監獄，在地下一樓遇到正在逃獄的「小丑」巴其，
                 「監獄最強的男人」推進城署長 麥哲倫召集全部戰力於「LV4 焦熱地獄」迎戰魯夫。魯夫與麥哲倫決鬥，戰敗並被押送入「LV5 極寒地獄」，
                 再瀕死之際被小馮馮救出並接受Lv.5.5新人類樂園「人妖王」艾波利歐˙伊娃柯夫拯救。伊娃柯得知魯夫為革命軍首領多拉格的兒子後，
                 與「雷電」等人幫助魯夫到「Lv.6」去救艾斯，卻發現艾斯已被移送到海軍本部。小馮馮假扮成麥哲倫開啟了「正義之門」，
-                並自願留下讓魯夫帶領241個囚犯順利離開推進城。</p>
+                並自願留下讓魯夫帶領241個囚犯順利離開推進城。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block ui move down reveal" id="b31">
+          <div class="block ui move down reveal" id="b31">
             <div class="show visible content">
-                <img src="./image/31.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">艾斯之死</b>
+              <img src="./image/31.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">艾斯之死</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">白鬍子率領白鬍子海賊團及新世界四十三個海賊團，前往「馬林福特」營救艾斯，
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">艾斯之死</span>
+                白鬍子率領白鬍子海賊團及新世界四十三個海賊團，前往「馬林福特」營救艾斯，
                 與海軍和王下七武海開戰，魯夫與推進城的逃犯趕到，並與「白鬍子」聯手，經過一番激戰，魯夫終成功救出艾斯，大夥逃亡之際，
                 海軍本部上將赤犬追擊艾斯和魯夫，艾斯受赤犬的言語挑釁，與之開打戰敗，赤犬乘勢攻擊已然力盡的魯夫，艾斯挺身抵擋，
-                拳頭貫穿身體，彌留之際感謝魯夫和前來營救他的所有人，隨後在魯夫懷裡含笑而逝，魯夫因而精神崩潰。</p>
+                拳頭貫穿身體，彌留之際感謝魯夫和前來營救他的所有人，隨後在魯夫懷裡含笑而逝，魯夫因而精神崩潰。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block fadeBlock" id="b32">
+          <div class="block fadeBlock" id="b32">
             <img src="./image/32.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">黑鬍子突然現身海軍本部，重傷的白鬍子，白鬍子最終以站著的姿態死亡，
-                黑鬍子利用神秘方法奪取了白鬍子的「震震果實」能力，成為能夠使用兩種果實能力的能力者，並向世人宣佈他將取代白鬍子成為世界霸主。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">黑鬍子</span>
+                黑鬍子突然現身海軍本部，重傷的白鬍子，白鬍子最終以站著的姿態死亡，
+                黑鬍子利用神秘方法奪取了白鬍子的「震震果實」能力，成為能夠使用兩種果實能力的能力者，並向世人宣佈他將取代白鬍子成為世界霸主。
+              </p>
             </div>
-        </div>  
+          </div>  
 
-        <div class="block fadeBlock" id="b33">
+          <div class="block fadeBlock" id="b33">
             <img src="./image/33.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">魯夫被送上前來營救的羅的潛水艇上。而後，紅髮傑克現身:<b style="font-size:16px;line-height:180%">
-                    「看在我的面子上，收手吧」</b>，各方決定收兵撤退，頂上戰爭結束。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">頂上戰爭結束</span>
+                魯夫被送上前來營救的羅的潛水艇上。而後，紅髮傑克現身:<b style="font-size:16px;line-height:180%">
+                  「看在我的面子上，收手吧」</b>，各方決定收兵撤退，頂上戰爭結束。
+              </p>
             </div>
-        </div>    
+          </div>    
 
-        <div class="block fadeBlock" id="b34">
+          <div class="block fadeBlock" id="b34">
             <img src="./image/34.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">魯夫之後又重回海軍本部馬林福多敲響「奧克斯大鐘」弔唁，向大家傳達3D(X)2Y</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">奧克斯大鐘</span>
+                魯夫之後又重回海軍本部馬林福多敲響「奧克斯大鐘」弔唁，向大家傳達3D(X)2Y
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block fadeBlock" id="b35">
+          <div class="block fadeBlock" id="b35">
             <img src="./image/35.png"  class="fade_pic">
             <div class="behind" >
-                <p style="font-size:14px;line-height:160%">兩年後草帽一夥重回夏波帝諸島，而千陽號這兩年來毫髮無傷，是巴索羅繆•大熊一直都在守護千陽號，
-                以保護千陽號當作被世界政府改造的條件，之後草帽海賊團搭乘包膜後的千陽號前往漁人島。</p>
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">重回夏波帝諸島</span>
+                兩年後草帽一夥重回夏波帝諸島，而千陽號這兩年來毫髮無傷，是巴索羅繆•大熊一直都在守護千陽號，
+                以保護千陽號當作被世界政府改造的條件，之後草帽海賊團搭乘包膜後的千陽號前往漁人島。
+              </p>
             </div>
-        </div> 
+          </div> 
 
-        <div class="block ui move up reveal" id="b36">
+          <div class="block ui move up reveal" id="b36">
             <div class="show visible content">
-                <img src="./image/36.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">漁人島</b>
+              <img src="./image/36.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">漁人島</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">魯夫等人正式潛入深海，抵達了海底一萬米深度被巨大肥皂泡包裹的魚人島。
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">漁人島</span>
+                魯夫等人正式潛入深海，抵達了海底一萬米深度被巨大肥皂泡包裹的魚人島。
                 被魚人島的國王「海王星國王」尼普頓招待前往龍宮城，魯夫誤闖龍宮王國公主白星房間，並得知白星因范德戴肯的瘋狂求愛而10年無法走出房門，
                 魯夫向白星承諾帶他出去玩。之後霍迪.瓊斯與范德戴肯攻入龍宮城，范德戴肯前去追趕白星公主，其後雙方對決正式展開，
                 魯夫霸王色打敗五萬人並擊敗霍迪，白星召喚巨大海王類拉住墜落的諾亞方舟，使漁人島倖免於難，戰後慎平幫魯夫輸血，
-                魯夫邀其加入海賊團卻遭婉拒。</p>
+                魯夫邀其加入海賊團卻遭婉拒。
+              </p>
             </div>                
-        </div>
+          </div>
 
-        <div class="block ui move right reveal" id="b37">
+          <div class="block ui move right reveal" id="b37">
             <div class="show visible content">
-                <img src="./image/37.png"  class="reveal_pic">
-                <b class="blockTitle"style="font-size:18px">冰火島</b>
+              <img src="./image/37.png"  class="reveal_pic">
+              <b class="blockTitle"style="font-size:18px">冰火島</b>
             </div>
             <div class="hidden content">
-                <p style="font-size:14px;line-height:160%">草帽海賊團收到求救訊號而登陸，魯夫、索隆、羅賓、騙人布先行下船，碰到只會說話的下半身，而留在船上眾人除了布魯克
+              <p style="font-size:14px;line-height:160%">
+                <span style="display:none">冰火島</span>
+                草帽海賊團收到求救訊號而登陸，魯夫、索隆、羅賓、騙人布先行下船，碰到只會說話的下半身，而留在船上眾人除了布魯克
                 (喬巴、娜美、香吉士、佛朗基)皆因催眠瓦斯被抓去密室，在密室遇到一顆頭顱，離開密室遇到暴食症及巨大化孩子，喬巴答應將其救出，
                 途中將錦衛門頭顱與上半身組裝`。另一邊，魯夫因凱薩瓦斯果實能力缺氧也被抓進SAD實驗室，遇到斯摩格跟羅，羅與斯摩格打敗多佛朗明哥手下維爾戈
                 ，維爾戈之前為海軍G5臥底，之後魯夫打飛凱薩，成功救出孩子，錦衛門兒子桃之助，羅主動與魯夫結盟，凱薩作為人質，羅與多佛朗明哥交換條件，
-                多佛朗明哥假意退出七武海。</p>
+                多佛朗明哥假意退出七武海。
+              </p>
             </div>                
-        </div>
+          </div>
+         
+
 		
 		<div class="block ui move reveal" id="b38">
             <div class="show visible content">
@@ -478,11 +622,13 @@
         </div>
 		
 		
-        <img src="./image/33.png" class="block" id="img3">
-        <img src="./image/26.png" class="block" id="img4">
-        <img src="./image/23.png" class="block" id="img5">
+        
 
 
-        <script src="main.js"></script>
+</div>
+      </div>
+      <script src="main.js"></script>
+
     </body>
-</html>
+  </html>
+

@@ -4,7 +4,6 @@
         <title>One Piece Chronicle Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="login_style.css">
@@ -12,14 +11,10 @@
 		<link rel="manifest" href="manifest.json"></link>
     </head>
     <body>
-        <a class="my_icon" onmousedown="info(this)">
-            <span style="font-size: 1em; color:white;">
-                <i class="fas fa-info-circle"></i>
-            </span>
-        </a>
+
         <embed src="./music/login_music.mp3" autostart="1" hidden="true" loop="1" volume="1"></embed>
         <div id="header">
-            <img src="./image/icon.png" style="width: 100px; height: 100px; margin-top: 15%;"></img>
+            <img src="./image/icon.png" id="head_icon"></img>
         </div>
         <div class = "register_sign_form">
             <div class="ui top attached tabular menu">
@@ -31,7 +26,12 @@
                 </a>
                 <a class="item" onmousedown="loginPage_state(this)" id="changeP_tag">
                     Change Password
-                </a>
+                  </a>
+                 <a class="my_icon" onmousedown="info(this)">
+                    <span style="font-size: 1em; color:white;">
+                       <i class="fas fa-info-circle"></i>
+                     </span>
+                  </a>
             </div>
             <div class="ui bottom attached segment">
                 <p>Name</p>
@@ -43,19 +43,7 @@
             </div>
         </div>
 
-
-        <!-- <div class="register_sign_form"> 
-            <p>Name</p>
-            <input type="text" id="name" placeholder="USER NAME"></input>
-            <p style="padding-top: 0px;">PassWord</p>
-            <input type="password" id="pwd" placeholder="PASSWORD"></input>
-            <p>Ensure PassWord</p>
-            <input type="password" id="ensure" placeholder="PASSWORD AGAIN"></input>
-            <input type="button" value="Register" id="reg"></input>
-            <input type="button" value="Login" id="login"></input>
-            <input type="button" value="Change Password" id="change_pw"></input>
-            </div>  -->
-            <script src="login.js"></script>
-			<script src="manup.js"></script>
+        <script src="login.js"></script>
+	<script src="manup.js"></script>
     </body>
 </html>

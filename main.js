@@ -83,7 +83,9 @@ function Frame(index) {
 
 for(i = 0; i < numFrames; i++) {
     frame.push(new Frame(i));
-    frame[i].target.style.bottom = EndPos;
+    if(width>1100){
+      frame[i].target.style.bottom = EndPos;
+    }
 }
 /*functfion Music(index) {
     this.index = index;
@@ -95,10 +97,12 @@ for(j = 0; j < numMusic; j++) {
     music.push(new Music(i));
 }
 */
-frame[0].target.style.bottom = initPos;
+if(width>1100){
+  frame[0].target.style.bottom = initPos;
+}
 
 $(window).mousewheel(function(e) {
-	if(allowScroll) {
+	if(allowScroll&&(width>1100)) {
         allowScroll = 0;
         var allowForward = (frame[numFrames-1].stage <= 1) ? true : false;
     	var allowBackward = (frame[0].stage >= 2) ? true : false;
@@ -410,29 +414,36 @@ function moveBackward(frame, stage) {
     }
 }
 */
-function onload() {
-    // new Frame objects
-    // for(i = 0; i < numFrames; i++) {
-    //     frame.push(new Frame(i));
-    //     frame[i].target.style.bottom = initPos;
+var username = undefined;
+function onload() {        
+    // if (getCookie("Username") == "")
+    //     window.top.location.replace("https://onepiece.hmkrl.com:8888");
+    // else {
+        username = getCookie("Username");
+        for(i = 0; i < numFrames; i++) {
+            frame.push(new Frame(i));
+            if(width>1100){
+              frame[i].target.style.bottom = EndPos; 
+            }else{addHoverEffect(frame[i]);}
+        }
+        if(width>1100){
+          frame[0].target.style.bottom = initPos;
+        }
+        
+        // initial setting
+        for(i = 0; i < numFrames; i++) {
+            if(frame[i].stage <= 0){
+              if(width>1100){
+                frame[i].target.style.display = "none";
+              }
+            }
+            else if(frame[i].stage == 2) {
+                addHoverEffect();
+            }
+            console.log(frame[i]);
+        }
+        allowScroll = 1;
     // }
-
-	for(i = 0; i < numFrames; i++) {
-	    frame.push(new Frame(i));
-	    frame[i].target.style.bottom = EndPos;
-	}
-	frame[0].target.style.bottom = initPos;
-    // initial setting
-    for(i = 0; i < numFrames; i++) {
-        if(frame[i].stage <= 0){
-            frame[i].target.style.display = "none";
-        }
-        else if(frame[i].stage == 2) {
-            addHoverEffect();
-        }
-        console.log(frame[i]);
-    }
-    allowScroll = 1;
 }
 
 
@@ -471,12 +482,9 @@ $(window).keydown(function(event) {
 })
 
 
-function moveLine() {
-	var number = slider.value; // Store the number of page
-	console.log(ori_num);
-	console.log(number);
-	
-	while(ori_num != number){
+function moveLine(number=slider.value, isSearch=0) {
+	// var number = slider.value; // Store the number of page
+	while((ori_num != number)&&(number<=(numFrames+1))){
 		
 	        allowScroll = 0;
 	        var allowForward = (frame[numFrames-1].stage <= 1) ? true : false;
@@ -499,9 +507,8 @@ function moveLine() {
 	    
 		if(ori_num < number){ori_num++;}
 	   	else {ori_num--;}
-	    console.log(ori_num);
-	    console.log(number);
-	}
+    }
+    if(isSearch) turnPage(ori_num);
 }
 
 
@@ -511,7 +518,8 @@ function moveLine() {
 var sheet = document.createElement('style'),  
   $rangeInput = $('.range input'),
   prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
-
+  
+sheet.textContent = ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
 document.body.appendChild(sheet);
 
 var number = slider.value; // Store the number of page(1 ~ 28)
@@ -534,6 +542,9 @@ function turnPage(index) {
       style += '.range {background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, transparent ' + val + '%, transparent 100%)}';
       style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
     }
+    if(slider.value < 16) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
+    else if(16 <= slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
+    else style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "sunny.gif" + "\");";
     sheet.textContent = style;
 }
 
@@ -556,6 +567,9 @@ var getTrackStyle = function (el) {
     style += '.range input::-' + prefs[i] + '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #3c3c3c ' + val + '%, #3c3c3c 100%)}';
   }
 
+  if(slider.value < 16) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
+  else if(16 <= slider.value && slider.value < 27) style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "merry.gif" + "\");";
+  else style += ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "sunny.gif" + "\");";
   return style;
 }
 
@@ -571,3 +585,100 @@ $('.range-labels li').on('click', function () {
   $rangeInput.val(index + 1).trigger('input');
   moveLine();
 });
+
+
+/*----------Search------------*/
+var target;
+var menu = document.getElementById("myMenu");
+var content = document.getElementsByTagName("p");
+
+function search() {
+    document.getElementsByClassName("search-content")[0].style.display = "block";
+    menu.innerHTML = "";
+    target = document.getElementById("mySearch").value;
+    for(i = 0; i < content.length; i++) {
+        answer = fuzzyQuery(content[i].innerHTML, target);
+        if(answer.length != 0) {
+            var position = i+3
+            var title = content[i].getElementsByTagName("span")[0];
+            menu.innerHTML += "<li onclick=\"moveLine(" + position + "," + 1 + ")\">" + title.innerText + "</li>";
+        }
+    }
+}
+
+function fuzzyQuery(list, keyword) {
+    var arr = [];
+    if(list.indexOf(keyword) >= 0) {
+        arr.push(list);
+    }
+    return arr;
+}
+
+$(document).mouseup(function(e) 
+{
+    var container = $(".search-content");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.hide();
+    }
+});
+
+function openNav() {
+  if(width>1100){
+    document.getElementsByClassName("topnav")[0].style.height = "49.33px";
+    document.getElementsByClassName("open")[0].style.display = "none";
+    document.getElementsByClassName("topnav")[0].style.overflow = "visible";
+  }
+  else{
+    var div=$(".sub_menu");
+    div.css("right","auto");
+    div.animate({width:'100%'},"fast");
+    $(".closebtn").toggle();
+  }
+}
+
+function closeNav() {
+  if(width>1100){
+    document.getElementsByClassName("topnav")[0].style.height = "0";
+    document.getElementsByClassName("open")[0].style.display = "block";
+    document.getElementsByClassName("topnav")[0].style.overflow = "hidden";
+  }
+  else{
+    var div=$(".sub_menu");
+    div.css("left","auto");
+    div.animate({width:'0%'},"fast");
+    $(".closebtn").toggle();
+  }
+}
+function openLog(){
+  $(".login").toggle();
+  $("#usernow").toggle();
+  $(".logout").toggle();
+}
+/*---------Cookie------------*/
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+/*------------------------------*/
+function pop(){
+    var popmes = document.querySelector(".floating.message.hidden");
+    if(popmes != null)
+        popmes.classList.remove("hidden");
+    else{
+        popmes = document.querySelector(".floating.message");
+        popmes.classList.add("hidden");
+    }
+} 

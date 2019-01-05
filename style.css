@@ -68,7 +68,7 @@ img{
 	  position: absolute;
 	  left:5px;
 	  top:15px;
-	  border-radius: 50%;
+	  /* border-radius: 50%; */
 	  width:250px;
 }
 
@@ -125,7 +125,7 @@ img{
    
 
 }
-
+/*
 .icon {
     position: absolute;
     height: 2%;
@@ -136,27 +136,15 @@ img{
     padding: 5px 5px;
     border-radius: 30%;
     z-index: 3;
-}
+}*/
 
-.icon:hover {
-    opacity: 0.7;
-}
-
-#icon-home {
-    right: 10px;
-	top:10px;
-}
-
-#icon-about {
-    right: 10px;
-	top:60px;
-}
-
-#icon-game {
-	right:10px;
-    top: 110px;
-}
-
+.floating.message{
+    position: absolute;
+    left:50%;
+    width:12%;
+    top:1%;
+    text-align: center;
+} 
 
 @keyframes movingForwardStage0 {
     from {
@@ -1373,7 +1361,7 @@ img{
     margin: -20px -3px 0;
 /*    border-radius: 50%;
     background: #37adbf;*/
-    background-image: url("merry.gif");
+    /* background-image: url("merry.gif"); */
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -1530,5 +1518,199 @@ img{
     }
     to {
         opacity: 1;
+    }
+}
+
+/*----------------*/
+.open {
+    position: fixed;
+    font-size:30px;
+    cursor:pointer;
+    left: 10px;
+    top: 10px;
+}
+
+.Search {
+  float: left;
+  overflow: visible;
+}
+
+.Search #mySearch {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.search-content {
+  display: none;
+  position: absolute;
+  top: 90%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+#myMenu {
+    float: none;
+    color: black;
+    padding: 10px 12px;
+    margin: 0;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-radius: 2%;
+}
+
+#myMenu li {
+    padding: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    color: black;
+    display: block;
+}
+
+#myMenu li:hover {
+    background-color: #eee; 
+}
+
+/*----------------------------*/
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    /* width: 0; */
+    height: 0;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.topnav p{
+    margin-left: 3px;
+    color: #f2f2f2;
+    font-size: 10px;
+}
+
+.closebtn {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 16px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+#usernow{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+    margin: 0;
+    font-size: 13px;
+}
+
+.home {
+    background-color: rgb(230, 169, 100);
+    color: white;
+    height: 100%;
+    padding: 25px 16px;
+    font-size: 20px;
+}
+/*
+.topnav .icon {
+  display: none;
+}
+*/
+.setting {
+  float: left;
+  overflow: hidden;
+}
+
+.setting .settingbtn {
+    font-size: 13px;    
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    padding: 6px 0 0 0;
+}
+
+.settingItems {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#set{
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+}
+
+.setting:hover .settingItems {
+    display: block;
+} 
+.person{
+  display:none;
+}
+.sub_menu{
+  display:block;
+}
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child), .dropdown .dropbtn {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
     }
 }

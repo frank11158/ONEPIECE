@@ -136,6 +136,7 @@ $("#login_btn").click(function(event){
                     $("#pwd").val("")
                     break;
                 case 1:
+                    setCookie("Username", $("#name").val(), 6);
                     $("#result").html("Welcome, " + data.name)
                     $("#name").val("")
                     $("#pwd").val("")
@@ -150,4 +151,9 @@ $("#login_btn").click(function(event){
     })    
 })
 
-
+function setCookie(cname,cvalue,exmins) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exmins*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}

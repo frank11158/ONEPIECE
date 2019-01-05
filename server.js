@@ -2,7 +2,14 @@ const express = require('express')
 const app = express()
 const port = 8888
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('./DB/OP.db')
+const db = new sqlite3.Database('/home/kirinonfire6373/OP.db')
+const https = require('https')
+const fs = require('fs')
+
+const options = {
+	key: fs.readFileSync('/home/kirinonfire6373/sercretKey/privkey.pem','utf8'),
+	cert: fs.readFileSync('/home/kirinonfire6373/sercretKey/fullchain.pem','utf8')
+}
 
 db.serialize(function(){
     db.run("CREATE TABLE IF NOT EXISTS usr_pw (name TEXT, pw TEXT, PRIMARY KEY(`name`))")
@@ -17,19 +24,25 @@ app.get('/regis', function(req, res){
         if (err) {
             throw err;
         }else if(req.query.pw != req.query.pw_re){
-            res.send("inconsistent password")
-
+            res.end("inconsistent password")
         }else{
             if(rows.length == 0){
-                db.run(sql, req.query.usrName, req.query.pw)
-                db.run(sql2, req.query.usrName)
-                res.send("user created")
+                db.all(sql, req.query.usrName, req.query.pw, function(err, r){
+			if(err)
+				console.log(err);			
+			else
+				res.end("user created")	
+		})
+                db.all(sql2, req.query.usrName, function(err,r){
+			if(err)
+				console.log(err);
+		})
             }else{
-                res.send("user already exist")
+                res.end("user already exist")
             }
             console.log(rows.length)
         }
-        res.end()
+       // res.end()
     })
 })
 
@@ -48,7 +61,7 @@ app.get('/checkScore', function(req, res){
         }
         sc = rows[0]
     })
-    res.send(sc)
+    res.end(sc)
 })
 
 app.get('/signIn', function(req, res){
@@ -68,7 +81,7 @@ app.get('/signIn', function(req, res){
             //console.log(psw[0].password, req.query.pw)
         }
         res.send(resData)
-        res.end()
+	res.end()
     })
 })
 
@@ -90,11 +103,13 @@ app.get('/changePW', function(req, res){
             else
                 resData= {state: 2}
         }
-        res.send(resData)
+        res.end(resData)
     })
 })
 
-app.use(express.static(`${__dirname}`))
-app.listen(port, () => {
+app.use(express.static(`${__dirname}/html`))
+/*app.listen(port, () => {
     console.log('Listening on port' + port)
-})
+})*/
+
+https.createServer(options,app).listen(port)

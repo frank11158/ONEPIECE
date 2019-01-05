@@ -1533,6 +1533,7 @@ img{
 .Search {
   float: left;
   overflow: visible;
+  width: 190px;
 }
 
 .Search #mySearch {
@@ -1547,13 +1548,13 @@ img{
 }
 
 .search-content {
-  display: none;
-  position: absolute;
-  top: 90%;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 10;
+    display: none;
+    position: absolute;
+    top: 80%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
 }
 
 #myMenu {
@@ -1590,16 +1591,16 @@ img{
 }
 
 .topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 5px 16px;
-  text-decoration: none;
-  font-size: 13px;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    font-size: 13px;
 }
 
-.topnav p{
+.topnav p {
     margin-left: 3px;
     color: #f2f2f2;
     font-size: 10px;
@@ -1615,7 +1616,7 @@ img{
     font-size: 13px;
 }
 
-#usernow{
+#usernow {
     float: left;
     display: block;
     text-align: center;
@@ -1638,8 +1639,8 @@ img{
 }
 */
 .setting {
-  float: left;
-  overflow: hidden;
+    float: left;
+    overflow: hidden;
 }
 
 .setting .settingbtn {
@@ -1659,10 +1660,19 @@ img{
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 10;
 }
 
-#set{
+.settingItems audio {
+    float: none;
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+#set {
     margin-left: 3px;
     margin-right: 3px;
     font-size: 13px;
@@ -1676,41 +1686,12 @@ img{
 
 .setting:hover .settingItems {
     display: block;
-} 
-.person{
-  display:none;
-}
-.sub_menu{
-  display:block;
 }
 
-@media screen and (max-width: 600px) {
-    .topnav a:not(:first-child), .dropdown .dropbtn {
-        display: none;
-    }
-    .topnav a.icon {
-        float: right;
-        display: block;
-    }
+.person {
+    display:none;
 }
 
-@media screen and (max-width: 600px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-    .topnav.responsive .dropdown {float: none;}
-    .topnav.responsive .dropdown-content {position: relative;}
-    .topnav.responsive .dropdown .dropbtn {
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
+.sub_menu {
+    display:block;
 }

@@ -416,10 +416,11 @@ function moveBackward(frame, stage) {
 */
 var username = undefined;
 function onload() {        
-    // if (getCookie("Username") == "")
-    //     window.top.location.replace("https://onepiece.hmkrl.com:8888");
-    // else {
+    if (getCookie("Username") == "")
+        window.top.location.replace("index.html");
+    else {
         username = getCookie("Username");
+        document.getElementById("usernow").textContent = username;
         for(i = 0; i < numFrames; i++) {
             frame.push(new Frame(i));
             if(width>1100){
@@ -443,10 +444,8 @@ function onload() {
             console.log(frame[i]);
         }
         allowScroll = 1;
-    // }
+    }
 }
-
-
 
 $(window).keydown(function(event) {
     if(allowScroll) {
@@ -601,7 +600,7 @@ function search() {
     for(i = 0; i < content.length; i++) {
         answer = fuzzyQuery(content[i].innerHTML, target);
         if(answer.length != 0) {
-            var position = i+3
+            var position = i+1
             var title = content[i].getElementsByTagName("span")[0];
             menu.innerHTML += "<li onclick=\"moveLine(" + position + "," + 1 + ")\">" + title.innerText + "</li>";
         }

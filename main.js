@@ -521,7 +521,7 @@ var sheet = document.createElement('style'),
 sheet.textContent = ".range input::-webkit-slider-thumb {background-image: url(\"./image/shipGif/" + "ship1.gif" + "\");";
 document.body.appendChild(sheet);
 
-var number = slider.value; // Store the number of page(1 ~ 40)
+var number = slider.value; // Store the number of page(1 ~ 42)
 
 function turnPage(index) {
     

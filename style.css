@@ -1358,7 +1358,7 @@ img{
     -webkit-appearance: none;
     width: 35px;
     height: 40px;
-    margin: -20px -3px 0;
+    margin: -20px 5px 0;
 /*    border-radius: 50%;
     background: #37adbf;
     background-image: url("merry.gif"); */
@@ -1415,14 +1415,14 @@ img{
     color: transparent;
 }
 .range-labels {
-    margin: 18px -10px 0;
+    margin: 18px -8px 18px 0;
     padding: 0;
     list-style: none;
 }
 .range-labels li {
     position: relative;
     float: left;
-    width: 2.11%;
+    width: 2.01%;
     text-align: center;
     color: #3c3c3c;
     font-size: 14px;
@@ -1432,7 +1432,7 @@ img{
     position: absolute;
     top: -24px;     /* 調整圓點的高低 */
     right: 0px;
-    left: -7px;
+    left: 5px;
     content: "";
     margin: 0 auto;
     width: 11px;
@@ -1440,14 +1440,15 @@ img{
     background: #3c3c3c;
     border-radius: 50%;
 }
-/*.range-labels .active {
+.range-labels .active {
     color: #37adbf;
 }
-.range-labels .selected::before {
+/*.range-labels .selected::before {
     background: #37adbf;
 }*/
 .range-labels .active.selected::before {
     display: none;
+    left: 5px;
 }
 .character {
     position: absolute;

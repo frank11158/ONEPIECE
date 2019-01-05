@@ -66,7 +66,7 @@ pic_left.push(98 + "%"); //Left6
 pic_left.push(50 + "%"); //Left00
 //var numMusic = 1;
 var allowScroll;
-var numFrames = 39;
+var numFrames = 41;
 var initPos = 180;
 var EndPos = 200;
 var maxScale = 1.6;

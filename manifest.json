@@ -1,13 +1,20 @@
 {
-  "name": "OnePiece",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
-  "display": "fullscreen",
-  "Scope": "/",
-  "start_url": "https://luffy.ee.ncku.edu.tw/~WebCFC/ONEPIECE/?fbclid=IwAR08DxKKgVxzIDyonzrPaP04VLAa08sWZoWPyvHKvK1VZ3ocpffBUzpjn50",
-  "icons": [
-    {
-      "src": "image/icons/icon-72x72.png",
+    "dir": "ltr",
+    "lang": "zh-tw",
+    "name": "ONEPIECE Timeline",
+    "scope": "",
+    "display": "fullscreen",
+    "start_url": "https://onepiece.hmkrl.com",
+    "short_name": "ONEPIECE Timeline",
+    "theme_color": "transparent",
+    "description": "",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+	{
+      "src": "images/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"
     },
@@ -46,6 +53,7 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+	],
+	"splash_pages": null
 }
+

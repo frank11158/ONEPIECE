@@ -136,8 +136,8 @@ img{
     padding: 5px 5px;
     border-radius: 30%;
     z-index: 3;
-}
-*/
+}*/
+
 .floating.message{
     position: absolute;
     left:50%;
@@ -1072,6 +1072,49 @@ img{
     margin-left: 12%;
 	margin-right: 13%;
 }
+#b38 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left2);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 29%;
+    height: 60%;
+	display: none;
+	border-radius:8px;
+}
+#b38> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+#b39 {
+	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
+    /* bottom: 510px; */
+    /* display: block; */
+	position: absolute !important;
+	bottom: var(--initPos);
+ 	left: var(--left1);
+    transform:scale(0.7);
+    opacity: 0;
+    z-index: 14;
+	width: 29%;
+    height: 55%;
+	display: none;
+	border-radius:8px;
+}
+#b39> div.hidden.content > p{
+	font-family: "Noto Sans TC", sans-serif;
+    margin-top: 18%;
+    margin-left: 12%;
+	margin-right: 13%;
+}
+
 #img3 {
 	left: var(--left1);
 	bottom: var(--EndPos);    

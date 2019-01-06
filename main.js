@@ -80,7 +80,19 @@ function Frame(index) {
     this.target = document.getElementsByClassName("block")[index];
     this.stage = 1-index;
 }
-
+$.ajax({
+  method: "get",
+  url: "./checkScore",
+  data:{
+    usrName: "",
+  },
+  success: function(data){
+    if(0<data<512){numFrames=12;}
+    else if((512<=data)&&(data<1024)){numFrames=25;}
+    else if((1024<=data)&&(data<2048)){numFrames=36;}
+    else if(2048<=data){numFrames=41;}
+  }
+})
 for(i = 0; i < numFrames; i++) {
     frame.push(new Frame(i));
     if(width>1100){
@@ -425,10 +437,14 @@ function onload() {
             frame.push(new Frame(i));
             if(width>1100){
               frame[i].target.style.bottom = EndPos; 
-            }else{addHoverEffect(frame[i]);}
+            }
         }
         if(width>1100){
           frame[0].target.style.bottom = initPos;
+        }else{
+          for(i = 0;i<42;i++){
+            addHoverEffect(frame[i]);
+          }
         }
         
         // initial setting
@@ -444,6 +460,22 @@ function onload() {
             console.log(frame[i]);
         }
         allowScroll = 1;
+        if(numFrames==25){
+          for(i=0;i<13;i++){
+            var div = document.getElementsByClassName("ban")[i];
+            div.style.display="none";
+          }
+        }else if(numFrames==36){
+          for(i=0;i<24;i++){
+            var div = document.getElementsByClassName("ban")[i];
+            div.style.display="none";
+          }
+        }else if(numFrames==41){
+          for(i=0;i<42;i++){
+            var div = document.getElementsByClassName("ban")[i];
+            div.style.display="none";
+          }
+        }
     }
 }
 

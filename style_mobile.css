@@ -19,6 +19,24 @@ body{
   position: absolute;
   overflow: auto;
 }
+.ban{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  text-align:center;
+  font-size: 3vh;
+  padding-top: 45%;
+}
+.fa-ban{
+  font-size: 5vh;
+}
+.reveal>.ban{
+  white-space: normal;
+}
+.reveal>.ban>.fa-ban{
+  position: absolute;
+  right: 40%;
+}
 img{
   object-fit: cover;
 }
@@ -375,5 +393,8 @@ b{
   #bars{
     font-size: 5vw;
     top: 23%;
+  }
+  .ban{
+    font-size: 5vw;
   }
 }

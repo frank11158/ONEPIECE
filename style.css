@@ -1338,7 +1338,7 @@ video{
 #container {
     position: absolute;
     width:85%;
-    bottom: 5%;
+    top: 5%;
     left: 15%;
     z-index: 100;
 }

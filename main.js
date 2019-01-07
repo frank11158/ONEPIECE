@@ -1,3 +1,4 @@
+
 function addHoverEffect(frame) {
     if(frame.target.classList.contains("fadeBlock")) {
         $(frame.target).hover(fade, recover);
@@ -104,7 +105,6 @@ for(i = 0; i < numFrames; i++) {
     this.target = document.getElementsByClassName("music")[index];
   
 }
-
 for(j = 0; j < numMusic; j++) {
     music.push(new Music(i));
 }
@@ -228,7 +228,6 @@ function moveForward(frame, stage) {
     if(stage == 0){
         frame.target.style.display = "block";
         $(frame.target).delay(200);
-
         var tar_left = $(frame.target).position().left;
         if(tar_left < center ){
             frame.target.style.animation = "movingForwardStage0_l 1s";
@@ -247,15 +246,12 @@ function moveForward(frame, stage) {
         frame.target.style.transform = "scale(" + scale + "," + scale + ")";
         frame.target.style.opacity = 0.5;
     }
-
     else if(stage == 1){
         frame.target.style.display = "block";
         $(frame.target).delay(200);
-
         var tar_left = $(frame.target).position().left;
                 
         console.log(tar_left);
-
         if(tar_left < center ){
             frame.target.style.animation = "movingForwardStage1_l 1s";
             frame.target.style.left = left3;
@@ -267,7 +263,6 @@ function moveForward(frame, stage) {
         else{
             frame.target.style.animation = "movingForwardStage1 1s";
         }
-
         // frame.target.style.animationDelay = "0.5s";
         //frame.target.style.bottom = initPos-50 + "px";
         frame.target.style.bottom = 50 + "px";
@@ -277,7 +272,6 @@ function moveForward(frame, stage) {
         frame.target.style.opacity = 1;
     }
     else if(stage == 2) {
-
         var tar_left = $(frame.target).position().left;
         if(tar_left < center ){
             console.log(tar_left);
@@ -291,7 +285,6 @@ function moveForward(frame, stage) {
         else{
             frame.target.style.animation = "movingForwardStage2 1s";
         }
-
         // frame.target.style.animationDelay = "0.5s";
         frame.target.style.bottom = -500 + "px" ;
         var scale = maxScale;
@@ -360,7 +353,6 @@ function moveBackward(frame, stage) {
 /*
 function moveBackward(frame, stage) {
     if(stage == 1) {
-
         var tar_left = $(frame.target).position().left;
         if(tar_left < center ){
             console.log(tar_left);
@@ -378,10 +370,8 @@ function moveBackward(frame, stage) {
         var scale = 0.7;
         frame.target.style.transform = "scale(" + scale + "," + scale + ")";
         frame.target.style.opacity = 0;
-
     }
     else if(stage == 3){
-
         var tar_left = $(frame.target).position().left;
         if(tar_left < center ){
             console.log(tar_left);
@@ -394,7 +384,6 @@ function moveBackward(frame, stage) {
         }else{
             frame.target.style.animation = "movingBackwardStage3 1s";
         }
-
         // frame.target.style.animationDelay = "0.5s";
         //frame.target.style.bottom = initPos-50 + "px";
         frame.target.style.bottom = 50 + "px";
@@ -403,7 +392,6 @@ function moveBackward(frame, stage) {
         frame.target.style.opacity = 1;
     }
     else if(stage == 2) {
-
         var tar_left = $(frame.target).position().left;
         if(tar_left < center ){
             console.log(tar_left);
@@ -663,6 +651,7 @@ function openNav() {
     document.getElementsByClassName("topnav")[0].style.height = "49.33px";
     document.getElementsByClassName("open")[0].style.display = "none";
     document.getElementsByClassName("topnav")[0].style.overflow = "visible";
+    document.getElementById("container").style.top = "10%";
   }
   else{
     var div=$(".sub_menu");
@@ -677,6 +666,7 @@ function closeNav() {
     document.getElementsByClassName("topnav")[0].style.height = "0";
     document.getElementsByClassName("open")[0].style.display = "block";
     document.getElementsByClassName("topnav")[0].style.overflow = "hidden";
+    document.getElementById("container").style.top = "5%";
   }
   else{
     var div=$(".sub_menu");
@@ -714,4 +704,4 @@ function pop(){
         popmes = document.querySelector(".floating.message");
         popmes.classList.add("hidden");
     }
-} 
+}

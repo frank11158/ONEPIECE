@@ -83,24 +83,6 @@ function Frame(index) {
     this.target = document.getElementsByClassName("block")[index];
     this.stage = 1-index;
 }
-document.getElementById("usernow").textContent
-$.ajax({
-  method: "get",
-  url: "./checkScore",
-  data:{
-    usrName: "admin",
-  },
-  success: function(data){
-    var sc = data.score
-    if(0<sc<512){numFrames=12;}
-    else if((512<=sc)&&(sc<1024)){numFrames=25;}
-    else if((1024<=sc)&&(sc<2048)){numFrames=36;}
-    else if(2048<=sc){numFrames=41;}
-	console.log("get data success");
-	console.log(sc);
-	console.log(numFrames);
-  }
-})
 for(i = 0; i < numFrames; i++) {
     frame.push(new Frame(i));
     if(width>1100){
@@ -423,11 +405,28 @@ function moveBackward(frame, stage) {
 */
 var username = undefined;
 function onload() {        
-    if (getCookie("Username") == "")
-        window.top.location.replace("index.html");
-    else {
-        username = getCookie("Username");
-        document.getElementById("usernow").textContent = username;
+  if (getCookie("Username") == "")
+    window.top.location.replace("index.html");
+  else {
+    username = getCookie("Username");
+    $.ajax({
+      method: "get",
+      url: "./checkScore",
+      data:{
+        usrName: username,
+      },
+      success: function(data){
+        var sc = data.score
+          if((0<sc)&&(sc<512)){numFrames=12;}
+          else if((512<=sc)&&(sc<1024)){numFrames=25;scoreChange();}
+          else if((1024<=sc)&&(sc<2048)){numFrames=36;scoreChange();}
+          else if(2048<=sc){numFrames=41;scoreChange();}
+        console.log("get data success");
+        console.log(sc);
+        console.log(numFrames);
+      }
+    })
+    document.getElementById("usernow").textContent = username;
         for(i = 0; i < numFrames; i++) {
             frame.push(new Frame(i));
             if(width>1100){
@@ -455,6 +454,9 @@ function onload() {
             console.log(frame[i]);
         }
         allowScroll = 1;
+    }
+}
+function scoreChange(){
         if(numFrames==25){
           for(i=0;i<13;i++){
             var div = document.getElementsByClassName("ban")[i];
@@ -471,9 +473,7 @@ function onload() {
             div.style.display="none";
           }
         }
-    }
 }
-
 $(window).keydown(function(event) {
     if(allowScroll) {
         allowScroll = 0;

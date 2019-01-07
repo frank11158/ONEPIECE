@@ -436,7 +436,7 @@ function onload() {
         if(width>1100){
           frame[0].target.style.bottom = initPos;
         }else{
-          for(i = 0;i<42;i++){
+          for(i = 1;i<42;i++){
             addHoverEffect(frame[i]);
           }
         }
@@ -468,7 +468,7 @@ function scoreChange(){
             div.style.display="none";
           }
         }else if(numFrames==41){
-          for(i=0;i<42;i++){
+          for(i=0;i<29;i++){
             var div = document.getElementsByClassName("ban")[i];
             div.style.display="none";
           }

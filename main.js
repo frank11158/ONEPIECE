@@ -1,3 +1,5 @@
+    
+
 
 function addHoverEffect(frame) {
     if(frame.target.classList.contains("fadeBlock")) {
@@ -81,17 +83,22 @@ function Frame(index) {
     this.target = document.getElementsByClassName("block")[index];
     this.stage = 1-index;
 }
+document.getElementById("usernow").textContent
 $.ajax({
   method: "get",
   url: "./checkScore",
   data:{
-    usrName: "",
+    usrName: "admin",
   },
   success: function(data){
-    if(0<data<512){numFrames=12;}
-    else if((512<=data)&&(data<1024)){numFrames=25;}
-    else if((1024<=data)&&(data<2048)){numFrames=36;}
-    else if(2048<=data){numFrames=41;}
+    var sc = data.score
+    if(0<sc<512){numFrames=12;}
+    else if((512<=sc)&&(sc<1024)){numFrames=25;}
+    else if((1024<=sc)&&(sc<2048)){numFrames=36;}
+    else if(2048<=sc){numFrames=41;}
+	console.log("get data success");
+	console.log(sc);
+	console.log(numFrames);
   }
 })
 for(i = 0; i < numFrames; i++) {

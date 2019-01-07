@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8888
+const port = 443
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('/home/kirinonfire6373/OP.db')
 const https = require('https')
@@ -54,14 +54,17 @@ app.get('/score_update', function(req, res){
 
 app.get('/checkScore', function(req, res){
     var sql = "SELECT score FROM score_record WHERE name = ?"
-    var sc = 0
+    var resData;
     db.all(sql, req.query.usrName, function(err, rows){
         if (err) {
-            throw err;
+            res.end(err);
         }
-        sc = rows[0]
+        resData = {score: rows[0].score}
+        console.log("score:" + rows[0].score)
+        res.send(resData)
+        //res.end()
     })
-    res.end(sc)
+    //res.end()
 })
 
 app.get('/signIn', function(req, res){
@@ -69,7 +72,7 @@ app.get('/signIn', function(req, res){
     db.all(sql, req.query.usrName, function(err, psw){
         var resData;
         if (err) {
-            throw err;
+            res.end(err);
         }
         if(psw.length == 0)//user not exist
             resData= {state: 0}

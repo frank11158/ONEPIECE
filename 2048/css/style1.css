@@ -1,0 +1,156 @@
+.icon {
+    position: absolute;
+    height: 2%;
+    color: #443f3b;
+    text-align: center;
+    font-size: 24px;
+    padding: 5px 5px;
+    border-radius: 30%;
+    z-index: 3;
+}
+
+.icon:hover {
+    opacity: 0.7;
+}
+
+#icon-home {
+    right: 10px;
+    top: 10px;
+}
+
+#icon-about {
+    right: 10px;
+    top: 70px;
+}
+
+#icon-game {
+    right: 10px;
+    top: 130px;
+}
+
+
+
+.big_bg{
+    height: 450px;
+    width: 450px;
+    background-color: #77DDFF;
+    background-image: url("../images/bg3_1.jpg");
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin: -200px 0 0 -225px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    
+}
+
+body{
+    background: url("../images/2048bg1.png") no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+.title{
+    font-family: "Permanent Marker", cursive;
+    color: white;
+}
+.block{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    float: left;
+    font-family: "Permanent Marker", cursive;
+    font-size: 24px;
+    text-align: center;
+    line-height: 180px;
+    /*color: rgba(24, 21, 21);*/
+    color: black    ;
+}
+
+/*.r0c0{
+    top: 10px;
+    left: 10px;
+}
+.r0c1{
+    top: 10px;
+    left: 120px;
+}
+.r0c2{
+    top: 10px;
+    left: 230px;
+}
+.r0c3{
+    top: 10px;
+    left: 340px;
+}
+.r1c0{
+    top: 120px;
+    left: 10px;
+}
+.r1c1{
+    top: 120px;
+    left: 120px;
+}
+.r1c2{
+    top: 120px;
+    left: 230px;
+}
+.r1c3{
+    top: 120px;
+    left: 340px;
+}
+.r2c0{
+    top: 230px;
+    left: 10px;
+}
+.r2c1{
+    top: 230px;
+    left: 120px;
+}
+.r2c2{
+    top: 230px;
+    left: 230px;
+}
+.r2c3{
+    top: 230px;
+    left: 340px;
+}
+.r3c0{
+    top: 340px;
+    left: 10px;
+}
+.r3c1{
+    top: 340px;
+    left: 120px;
+}
+.r3c2{
+    top: 340px;
+    left: 230px;
+}
+.r3c3{
+    top: 340px;
+    left: 340px;
+}
+
+.up1{ animation: up_1 1s; animation-fill-mode: forwards;}
+@keyframes up_1{
+    from{ transform: translateY(0); }
+    to{ transform: translateY(-110px); }
+}
+.up2{ animation: up_2 1s; animation-fill-mode: forwards;}
+@keyframes up_3{
+    from{ transform: translateY(0); }
+    to{ transform: translateY(-330px); }
+}
+.up3{ animation: up_3 1s; animation-fill-mode: forwards;}
+@keyframes up_3{
+    from{ transform: translateY(0); }
+    to{ transform: translateY(-330px); }
+}
+
+.down3{ animation: down_3 1s; animation-fill-mode: forwards;}
+@keyframes down_3{
+    from{ transform: translateY(0); }
+    to{ transform: translateY(330px); }
+}*/

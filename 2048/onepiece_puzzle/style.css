@@ -1,0 +1,77 @@
+.big_bg{
+    height: 450px;
+    width: 450px;
+    position: absolute;
+    background-color: #77DDFF;
+    left: 50%;
+    right: 50%;
+    margin: -200px 0 0 -225px;
+    top: 50%;
+}
+
+body{
+    background: url("./bg.png") no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.row{
+    height: 110px;
+    margin-left: 0px;
+    padding-top: 0px;
+}
+.square{
+    height: 100px;
+    width: 100px;
+    background-color: #555;
+    float: left;
+    margin: 5px;
+    position: absolute;
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.c0{
+    margin-left: 10px; 
+ }
+.c1{
+   margin-left: 120px; 
+}
+.c2{
+    margin-left: 230px; 
+ }
+.c3{
+    margin-left: 340px; 
+}
+
+.title{
+    font-family: "Permanent Marker", cursive;
+    color: blue;
+}
+
+.btn{
+    margin: 20px;
+    width: 100px;
+    height: 50px;
+    float: left;
+    margin-left: 1050px;
+    border-color: green;
+    border-width: 5px;
+    background-color: yellow;
+}
+
+#log{
+    padding: 10px;
+    width: 200px;
+    height: 300px;
+    background-color: rgb(43, 43, 38);
+    float: left;
+    margin-left: 1250px;
+    position: absolute;
+    color: beige;
+    font-size: 18px;
+    line-height: 30px;
+    overflow-y: scroll;
+}

@@ -47,10 +47,17 @@ app.get('/regis', function(req, res){
         })
 })
 
-app.get('/score_update', function(req, res){
+app.get('/2048/score_update', function(req, res){
     var sql = "UPDATE score_record SET 'score' = ? WHERE name = ?"
-        db.run(sql, req.query.score, req.query.usrName)
-        res.end()
+        db.all(sql, req.query.score, req.query.usrName, function(err, re){
+            if(err){
+                console.log(err)
+                    res.end()
+            }else{
+                console.log("score update to "+ req.query.score)
+                res.end()
+            }
+        })
 })
 
 app.get('/checkScore', function(req, res){

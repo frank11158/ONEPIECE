@@ -644,7 +644,7 @@ function sendScore(S) {
         method: "get",
         url: "./score_update",
         data: {
-            usrName: $("#usrName").val(),
+            usrName: usrname,
             score: S,
         },
         success: function (data) {

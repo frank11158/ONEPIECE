@@ -417,7 +417,7 @@ function onload() {
       },
       success: function(data){
         var sc = data.score
-          if((0<sc)&&(sc<512)){numFrames=12;}
+          if((0<=sc)&&(sc<512)){numFrames=12;}
           else if((512<=sc)&&(sc<1024)){numFrames=25;scoreChange();}
           else if((1024<=sc)&&(sc<2048)){numFrames=36;scoreChange();}
           else if(2048<=sc){numFrames=41;scoreChange();}

@@ -295,12 +295,10 @@ b{
   top: 15%;
   left: 25%;
 }
-
 #v0{
   height: 130vw;
-  margin-top: 6vw;   
+  margin-top: 6vw;
 }
-
 #v0 > div.hidden.content > center >video{
   padding-top: 30vw;
 }
@@ -321,7 +319,27 @@ b{
 #b5,#b7,#b8,#b9,#b10,#b11,#b12,#b13,#b17{
   height: 90vw; 
 }
-
+#b7 > div.behind > p{
+  font-size: 4vw;
+  top: 25%;
+}
+#b8 > div.behind > p{
+  font-size: 4vw;
+  top: 25%;
+}
+#b9 > div.behind > p{
+  font-size: 4vw;
+  top: 25%;
+}
+#b10 > div.behind > p{
+  font-size: 4.2vw;
+  top: 25%;
+}
+#b11 > div.behind > p{
+  font-size: 8vw;
+  top: 20%;
+  left: 55%;
+}
 #b16> div.hidden.content > p{
   margin-top: 19%;
 }
@@ -331,19 +349,37 @@ b{
 #b20> div.hidden.content > p{
   margin-top: 19%;
 }
-
+#b21 > div.behind > p{
+  font-size: 4vw;
+  top: 25%;
+}
 #b22{
   height: 140vw;
 }
 #b22> div.hidden.content > p{
   margin-top: 9%;
 }
-
+#b23 > div.behind > p{
+  font-size: 4vw;
+  top: 25%;
+}
 #b16,#b18,#b20,#b25, #b30, #b31, #b36, #b37{
   height: 130vw;
 }
 #b25> div.hidden.content > p{
   margin-top: 19%;
+}
+#b27 > div.behind > p{
+  font-size: 4.2vw;
+  top: 25%;
+}
+#b28 > div.behind > p{
+  font-size: 4.2vw;
+  top: 25%;
+}
+#b29 > div.behind > p{
+  font-size: 4.2vw;
+  top: 25%;
 }
 #b30> div.hidden.content > p{
   margin-top: 19%;
@@ -354,9 +390,17 @@ b{
 #b23,#b21,#b26, #b27, #b28, #b29, #b32, #b33, #b34, #b35{
   height: 90vw;
 }
-/*-----------------------------------*/
+#b33 > div.behind > p{
+  font-size: 4.2vw;
+  top: 25%;
+}
+#b34 > div.behind > p{
+  font-size: 4.2vw;
+  top: 25%;
+}
+/*----------------------------------------*/
 .character,#container{
-  display: none;
+  display:none;
 }
 @media screen and (orientation: landscape) {
   .topnav{

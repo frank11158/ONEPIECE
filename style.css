@@ -34,6 +34,12 @@ video{
     --OutPos : -500px;
     --EndPos : 200px;
 }
+p{
+  font-size: 2.215vh;
+}
+b{
+  font-size: 2.5vh;
+}
 /*.block{
     float: left;
     width: 25%;
@@ -504,6 +510,7 @@ video{
 	font-family: "Noto Sans TC", sans-serif;	
     position: relative;
     text-align: center;
+    font-size: 3.5vh;
     left:25%;
     top: 20%;
 }
@@ -684,6 +691,7 @@ video{
     position: relative;
     left: 25%;
     top: 20%;
+    font-size: 2vh;
 }
 #b20 {
 	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);
@@ -705,6 +713,7 @@ video{
     margin-top: 13%;
     margin-left: 15%;
 	margin-right: 13%;
+  font-size: 2vh;
 }
 #b21 {
     /* bottom: 500px; */
@@ -792,6 +801,7 @@ video{
     position: relative;
     left: 25%;
     top: 18%;
+    font-size: 2vh;
 }
 #b25 {
 	box-shadow:-2px 2px 2px rgba(20%,20%,40%,0.6),-4px 4px 6px rgba(20%,20%,40%,0.4),-6px 6px 12px rgba(20%,20%,40%,0.4);

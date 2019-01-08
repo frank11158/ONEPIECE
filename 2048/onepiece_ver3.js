@@ -635,7 +635,7 @@ function getCookie(cname) {
 }
 
 if (getCookie("uername") == "")
-    window.top.location.replace("https://onepiece.hmkrl.com:8888");
+    window.top.location.replace("https://onepiece.hmkrl.com");
 else
     usrname = getCookie("username");
 

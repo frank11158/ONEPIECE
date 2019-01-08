@@ -102,6 +102,11 @@ function loginPage_state(a){
                                 $("#old_pwd").val("")
                                 $("#new_pwd").val("")
                                 break;
+                            default:
+                                $("#result").html("sorry, we encounter some error")
+                                $("#old_pwd").val("")
+                                $("#new_pwd").val("")
+                                break;
                         }
                     }
                 })

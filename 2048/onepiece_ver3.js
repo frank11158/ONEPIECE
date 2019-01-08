@@ -634,10 +634,10 @@ function getCookie(cname) {
     return "";
 }
 
-if (getCookie("uername") == "")
+if (getCookie("Username") == "")
     window.top.location.replace("https://onepiece.hmkrl.com");
 else
-    usrname = getCookie("username");
+    usrname = getCookie("Username");
 
 function sendScore(S) {
     $.ajax({

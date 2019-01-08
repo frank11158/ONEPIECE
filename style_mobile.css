@@ -363,12 +363,19 @@ b{
   font-size: 4vw;
   top: 25%;
 }
-#b16,#b18,#b20,#b25, #b30, #b31, #b36, #b37{
+#b16,#b18,#b20,#b25, #b30, #b31, #b36, #b37, #b38, #b39{
   height: 130vw;
 }
 #b25> div.hidden.content > p{
   margin-top: 19%;
 }
+#b38> div.hidden.content > p{
+  margin-top: 19%;
+}
+#b39> div.hidden.content > p{
+  margin-top: 19%;
+}
+
 #b27 > div.behind > p{
   font-size: 4.2vw;
   top: 25%;

@@ -12,9 +12,16 @@
     </style>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Permanent+Marker" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
+    <a class="icon" id="icon-home" href="../../content.html">
+        <span style="color:white">
+            <i class="fa fa-fw fa-home"></i>
+        </span>
+    </a>
     <div class="title" style="font-size: 80px; margin-left: 80px;">One piece</div>
     <div class="title" style="font-size: 50px; margin-left: 250px;">puzzles</div>
     <div class="big_bg">
@@ -43,10 +50,10 @@
             <div class="square c3"></div>
         </div>
     </div>
-    <button type="button" class="btn" onclick="h()">Heuristic</button>
-    <button type="button" class="btn" onclick="solve()">Solve by IDA* algorithm</button>
-    <button type="button" class="btn" onclick="one_step()">Move one step</button>
-    <button type="button" class="btn" onclick="automove()">Auto move</button>
+    <button type="button" class="btn" onclick="h()">Manhattan Distance</button>
+    <button type="button" class="btn" onclick="solve()">A*搜尋解答</button>
+    <button type="button" class="btn" onclick="one_step()">電腦幫我走一步</button>
+    <button type="button" class="btn" onclick="automove()">電腦幫我走完</button>
     <p id="log"></p>
     <script src="jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>

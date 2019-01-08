@@ -57,7 +57,7 @@ function create_div(r, c) {
     blocks[r][c].id = 'id' + global_id++;
     new_div.id = blocks[r][c].id;
     new_div.innerHTML = 2;
-    
+
     //new_div.style.backgroundImage = "url('./images/luffy.jpg')";
     document.getElementsByClassName('big_bg')[0].appendChild(new_div);
     if (first_create < 2) {
@@ -121,7 +121,7 @@ function move_direction(direction) {
                 for (var c = 3; c > -1; c--) {
                     step_count(r, c, direction);
                 }
-            }   
+            }
             break;
     }
     move_animate(direction);
@@ -144,7 +144,7 @@ function step_count(r, c, direction) {
                         blocks[r][c].step_count++;
                         add_val = blocks[r][c].val * 2;
                         blocks[r][c].remove = true;
-                        score+=add_val;
+                        score += add_val;
                         break;
                     }
                     temp_r--;
@@ -169,7 +169,7 @@ function step_count(r, c, direction) {
                         blocks[r][c].step_count++;
                         add_val = blocks[r][c].val * 2;
                         blocks[r][c].remove = true;
-                        score+=add_val;
+                        score += add_val;
                         break;
                     }
                     temp_r++;
@@ -194,7 +194,7 @@ function step_count(r, c, direction) {
                         blocks[r][c].step_count++;
                         add_val = blocks[r][c].val * 2;
                         blocks[r][c].remove = true;
-                        score+=add_val;
+                        score += add_val;
                         break;
                     }
                     temp_c--;
@@ -219,7 +219,7 @@ function step_count(r, c, direction) {
                         blocks[r][c].step_count++;
                         add_val = blocks[r][c].val * 2;
                         blocks[r][c].remove = true;
-                        score+=add_val;
+                        score += add_val;
                         break;
                     }
                     temp_c++;
@@ -284,10 +284,15 @@ function move_animate(direction) {
                     removed = true;
                     console.log("remove!");
                     document.getElementById(blocks[r - temp_stepcount][c].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r - temp_stepcount][c].val) / Math.log(2)].src + "')";
-                    if(blocks[r - temp_stepcount][c].val == 512)
+                    if (blocks[r - temp_stepcount][c].val == 512) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
-                    else if(blocks[r - temp_stepcount][c].val == 1024)
+                    } else if (blocks[r - temp_stepcount][c].val == 1024) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
+                    }else if (blocks[r - temp_stepcount][c].val == 2048) {
+                        sendScore();
+                    }
 
                 }
                 if (removed == false) {
@@ -354,10 +359,15 @@ function move_animate(direction) {
                     removed = true;
                     console.log("remove!");
                     document.getElementById(blocks[r + temp_stepcount][c].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r + temp_stepcount][c].val) / Math.log(2)].src + "')";
-                    if(blocks[r + temp_stepcount][c].val == 512)
+                    if (blocks[r + temp_stepcount][c].val == 512) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
-                    else if(blocks[r + temp_stepcount][c].val == 1024)
+                    } else if (blocks[r + temp_stepcount][c].val == 1024) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
+                    }else if (blocks[r + temp_stepcount][c].val == 2048) {
+                        sendScore();
+                    }
                 }
                 if (removed == false) {
                     if (temp_stepcount != 0) {
@@ -419,11 +429,16 @@ function move_animate(direction) {
                     document.getElementById(temp_block_id).remove();
                     removed = true;
                     console.log("remove!");
-                    document.getElementById(blocks[r][c-temp_stepcount].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r][c-temp_stepcount].val) / Math.log(2)].src + "')";
-                    if(blocks[r][c-temp_stepcount].val == 512)
+                    document.getElementById(blocks[r][c - temp_stepcount].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r][c - temp_stepcount].val) / Math.log(2)].src + "')";
+                    if (blocks[r][c - temp_stepcount].val == 512) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
-                    else if(blocks[r][c-temp_stepcount].val == 1024)
+                    } else if (blocks[r][c - temp_stepcount].val == 1024) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
+                    }else if (blocks[r][c - temp_stepcount].val == 2048) {
+                        sendScore();
+                    }
                 }
                 if (removed == false) {
                     if (temp_stepcount != 0) {
@@ -490,11 +505,16 @@ function move_animate(direction) {
                     document.getElementById(temp_block_id).remove();
                     removed = true;
                     console.log("remove!");
-                    document.getElementById(blocks[r][c+temp_stepcount].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r][c+temp_stepcount].val) / Math.log(2)].src + "')";
-                    if(blocks[r][c+temp_stepcount].val == 512)
+                    document.getElementById(blocks[r][c + temp_stepcount].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r][c + temp_stepcount].val) / Math.log(2)].src + "')";
+                    if (blocks[r][c + temp_stepcount].val == 512) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
-                    else if(blocks[r][c+temp_stepcount].val == 1024)
+                    } else if (blocks[r][c + temp_stepcount].val == 1024) {
+                        sendScore();
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
+                    }else if (blocks[r][c + temp_stepcount].val == 2048) {
+                        sendScore();
+                    }
                 }
                 if (removed == false) {
                     if (temp_stepcount != 0) {
@@ -522,7 +542,8 @@ function move_animate(direction) {
             new_num = 2;
         create_div(newr, newc, new_num);
         set_val_color(newr, newc, new_num);
-        document.getElementById("score").innerHTML = "Score: "+ score;
+        document.getElementById("score").innerHTML = "Score: " + score;
+
         create_one = true;
     }
 
@@ -570,30 +591,64 @@ function remove_block() {
     }
 }
 
-function panda_man(){
+function panda_man() {
     var rand = Math.floor((Math.random() * 50));
-    if(rand == 1){
-        while(1){
+    if (rand == 1) {
+        while (1) {
             var r = Math.floor((Math.random() * 4));
             var c = Math.floor((Math.random() * 4));
-            var val  = blocks[r][c].val;
-            if( val >= 2 && val <= 64){
+            var val = blocks[r][c].val;
+            if (val >= 2 && val <= 64) {
                 var urlstring;
-                if(blocks[r][c].val == 2)
+                if (blocks[r][c].val == 2)
                     urlstring = "url('images/luffypanda.jpg')";
-                else if(blocks[r][c].val == 4)
+                else if (blocks[r][c].val == 4)
                     urlstring = "url('images/zoropanda.jpg')";
-                else if(blocks[r][c].val == 8)
+                else if (blocks[r][c].val == 8)
                     urlstring = "url('images/namipanda.jpg')";
-                else if(blocks[r][c].val == 16)
+                else if (blocks[r][c].val == 16)
                     urlstring = "url('images/usopppanda.jpg')";
-                else if(blocks[r][c].val == 32)
+                else if (blocks[r][c].val == 32)
                     urlstring = "url('images/sanjipanda.jpg')";
-                else if(blocks[r][c].val == 64)
+                else if (blocks[r][c].val == 64)
                     urlstring = "url('images/chopperpanda.jpg')";
                 document.getElementById(blocks[r][c].id).style.backgroundImage = urlstring;
                 break;
             }
         }
     }
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+if (getCookie("uername") == "")
+    window.top.location.replace("https://onepiece.hmkrl.com:8888");
+else
+    usrname = getCookie("username");
+
+function sendScore() {
+    $.ajax({
+        method: "get",
+        url: "./score_update",
+        data: {
+            usrName: $("#usrName").val(),
+            score: 5,
+        },
+        success: function (data) {
+
+        }
+    })
 }

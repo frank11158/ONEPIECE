@@ -30,20 +30,28 @@
 
 
 
-.big_bg{
-    height: 450px;
-    width: 450px;
+button{
+    height: 200px;
+    width: 200px;
     background-color: #77DDFF;
-    background-image: url("../images/bg3_1.jpg");
-    top: 50%;
     position: absolute;
-    left: 50%;
-    right: 50%;
-    margin: -200px 0 0 -225px;
+    left: 35%;
+    margin-top: 300px;
     border-style: solid;
     border-width: 3px;
-    border-color: white;
-    
+    border-color: yellow;
+    font-family: "Permanent Marker", cursive;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    border-radius: 14px;
+}
+
+#btn1{
+    background-image: url("../images/2048.jpg");
+}
+
+#btn2{
+    background-image: url("../images/puzzle.jpg");
 }
 
 body{

@@ -285,13 +285,13 @@ function move_animate(direction) {
                     console.log("remove!");
                     document.getElementById(blocks[r - temp_stepcount][c].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r - temp_stepcount][c].val) / Math.log(2)].src + "')";
                     if (blocks[r - temp_stepcount][c].val == 512) {
-                        sendScore();
+                        sendScore(512);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
                     } else if (blocks[r - temp_stepcount][c].val == 1024) {
-                        sendScore();
+                        sendScore(1024);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
                     }else if (blocks[r - temp_stepcount][c].val == 2048) {
-                        sendScore();
+                        sendScore(2048);
                     }
 
                 }
@@ -360,13 +360,13 @@ function move_animate(direction) {
                     console.log("remove!");
                     document.getElementById(blocks[r + temp_stepcount][c].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r + temp_stepcount][c].val) / Math.log(2)].src + "')";
                     if (blocks[r + temp_stepcount][c].val == 512) {
-                        sendScore();
+                        sendScore(512);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
                     } else if (blocks[r + temp_stepcount][c].val == 1024) {
-                        sendScore();
+                        sendScore(1024);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
                     }else if (blocks[r + temp_stepcount][c].val == 2048) {
-                        sendScore();
+                        sendScore(2048);
                     }
                 }
                 if (removed == false) {
@@ -431,13 +431,13 @@ function move_animate(direction) {
                     console.log("remove!");
                     document.getElementById(blocks[r][c - temp_stepcount].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r][c - temp_stepcount].val) / Math.log(2)].src + "')";
                     if (blocks[r][c - temp_stepcount].val == 512) {
-                        sendScore();
+                        sendScore(512);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
                     } else if (blocks[r][c - temp_stepcount].val == 1024) {
-                        sendScore();
+                        sendScore(1024);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
                     }else if (blocks[r][c - temp_stepcount].val == 2048) {
-                        sendScore();
+                        sendScore(2048);
                     }
                 }
                 if (removed == false) {
@@ -507,13 +507,13 @@ function move_animate(direction) {
                     console.log("remove!");
                     document.getElementById(blocks[r][c + temp_stepcount].id).style.backgroundImage = "url('" + imageObj[Math.log(blocks[r][c + temp_stepcount].val) / Math.log(2)].src + "')";
                     if (blocks[r][c + temp_stepcount].val == 512) {
-                        sendScore();
+                        sendScore(512);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg1_1.jpg')";
                     } else if (blocks[r][c + temp_stepcount].val == 1024) {
-                        sendScore();
+                        sendScore(1024);
                         document.getElementsByClassName("big_bg")[0].style.backgroundImage = "url('images/bg2_1.jpg')";
                     }else if (blocks[r][c + temp_stepcount].val == 2048) {
-                        sendScore();
+                        sendScore(2048);
                     }
                 }
                 if (removed == false) {
@@ -639,13 +639,13 @@ if (getCookie("uername") == "")
 else
     usrname = getCookie("username");
 
-function sendScore() {
+function sendScore(S) {
     $.ajax({
         method: "get",
         url: "./score_update",
         data: {
             usrName: $("#usrName").val(),
-            score: 5,
+            score: S,
         },
         success: function (data) {
 

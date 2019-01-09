@@ -10,16 +10,16 @@
             margin: 0;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Permanent+Marker|Noto+Sans+TC"rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
-    <a class="icon" id="icon-home" href="../../content.html">
+    <a class="icon" id="icon-home" href="../2048_onepiece_ver3.html">
         <span style="color:white">
-            <i class="fa fa-fw fa-home"></i>
+            <i class="fa fa-fw fa-sign-out"></i>
         </span>
     </a>
     <div class="title" style="font-size: 80px; margin-left: 80px;">One piece</div>
@@ -50,11 +50,13 @@
             <div class="square c3"></div>
         </div>
     </div>
-    <button type="button" class="btn" onclick="h()">Manhattan Distance</button>
-    <button type="button" class="btn" onclick="solve()">A*搜尋解答</button>
-    <button type="button" class="btn" onclick="one_step()">電腦幫我走一步</button>
+    <p style="position: absolute; left: 540px; bottom: 100px; font-family: 微軟正黑體">溫馨小提示：盤面有變更的話請先按搜尋解答再請電腦幫你走喔</p>
+    <button type="button" class="btn" onclick="h()" style="font-size: 16px;">複雜程度</button>
+    <button type="button" class="btn" onclick="solve()"style="font-size: 16px;">搜尋解答</button>
+    <button type="button" class="btn" onclick="one_step()">電腦幫我<br>走一步</button>
     <button type="button" class="btn" onclick="automove()">電腦幫我走完</button>
     <p id="log"></p>
+    
     <script src="jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>
 </body>

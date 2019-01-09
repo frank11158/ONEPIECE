@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <a class="icon" id="icon-home" href="../../content.html">
+    <a class="icon" id="icon-home" href="../2048_onepiece_ver3.html">
         <span style="color:white">
             <i class="fa fa-fw fa-home"></i>
         </span>
@@ -50,11 +50,13 @@
             <div class="square c3"></div>
         </div>
     </div>
-    <button type="button" class="btn" onclick="h()">Manhattan Distance</button>
-    <button type="button" class="btn" onclick="solve()">A*搜尋解答</button>
-    <button type="button" class="btn" onclick="one_step()">電腦幫我走一步</button>
+    <p style="position: absolute; left: 550px; bottom: 80px; font-family: 微軟正黑體">溫馨小提示：盤面有變更的話請先按搜尋解答再請電腦幫你走喔</p>
+    <button type="button" class="btn" onclick="h()">複雜程度</button>
+    <button type="button" class="btn" onclick="solve()">搜尋解答</button>
+    <button type="button" class="btn" onclick="one_step()">電腦幫我<br>走一步</button>
     <button type="button" class="btn" onclick="automove()">電腦幫我走完</button>
     <p id="log"></p>
+    
     <script src="jquery-3.3.1.min.js"></script>
     <script src="index.js"></script>
 </body>

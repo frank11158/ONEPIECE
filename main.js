@@ -629,11 +629,32 @@ function search() {
         if(answer.length != 0) {
             var position = i+1
             var title = content[i].getElementsByTagName("span")[0];
-            menu.innerHTML += "<li onclick=\"moveLine(" + position + "," + 1 + ")\">" + title.innerText + "</li>";
+            if(width>1100){
+               menu.innerHTML += "<li onclick=\"moveLine(" + position + "," + 1 + ")\">" + title.innerText + "</li>"; 
+            }else{
+               menu.innerHTML += "<li onclick=\"search_m(" + (position-5) + ")\">" + title.innerText + "</li>";
+            }
         }
     }
 }
-
+/*----mobile search----*/
+function search_m(index){
+  var target_m = $(".block2");
+  var a = String(index);
+  var i = "#b";
+  i = i + a;
+  var timer=setInterval(function(){
+    var top=target_m.scrollTop();
+    if($(i).offset().top > 0){
+      target_m.scrollTop(top+=30);
+      if($(i).offset().top<=50){
+        clearInterval(timer);
+      }
+    }else{
+      target_m.scrollTop(top-=30);
+    }
+  },10)
+}
 function fuzzyQuery(list, keyword) {
     var arr = [];
     if(list.indexOf(keyword) >= 0) {

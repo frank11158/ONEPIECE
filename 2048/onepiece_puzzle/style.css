@@ -19,10 +19,10 @@
 }
 
 .big_bg{
-    height: 450px;
-    width: 450px;
+    height: 425px;
+    width: 425px;
     position: absolute;
-    background-color: #77DDFF;
+    background-color: black;
     left: 50%;
     right: 50%;
     margin: -200px 0 0 -225px;
@@ -36,7 +36,7 @@ body{
 }
 
 .row{
-    height: 110px;
+    height: 105px;
     margin-left: 0px;
     padding-top: 0px;
 }
@@ -45,7 +45,7 @@ body{
     width: 100px;
     background-color: #555;
     float: left;
-    margin: 5px;
+    /*margin: 5px;*/
     position: absolute;
     color: white;
     line-height: 100px;
@@ -54,16 +54,16 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 .c0{
-    margin-left: 10px; 
+    margin-left: 5px; 
  }
 .c1{
-   margin-left: 120px; 
+   margin-left: 110px; 
 }
 .c2{
-    margin-left: 230px; 
+    margin-left: 215px; 
  }
 .c3{
-    margin-left: 340px; 
+    margin-left: 320px; 
 }
 
 .title{
@@ -73,14 +73,16 @@ body{
 
 .btn{
     margin: 20px;
-    width: 100px;
-    height: 50px;
+    width: 110px;
+    height: 55px;
     float: left;
     margin-left: 1050px;
     border-color: green;
     border-width: 5px;
     background-color: yellow;
-    font-family: "微軟正黑體";
+    font-family: "Noto Sans TC", sans-serif;
+    border-radius: 15px;
+    font-size: 14px;
 }
 
 #log{
@@ -90,9 +92,11 @@ body{
     background-color: rgb(43, 43, 38);
     float: left;
     margin-left: 1250px;
+    margin-top: 30px;
     position: absolute;
     color: beige;
     font-size: 18px;
     line-height: 30px;
     overflow-y: scroll;
+    font-family: "Noto Sans TC", sans-serif;
 }
